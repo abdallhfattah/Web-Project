@@ -1,10 +1,89 @@
-TODO:
-1.name
-2.ID
-3.DOB
-4.Gender
-5.Email
-6.phone number
-7.Department
-8.Level
-9.submit button
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration page</title>
+</head>
+<body>
+    <a href="test.html">  < Home</a>
+    <h1>Registration Page</h1>
+    <br>
+    <br>
+    <form>
+         <div>
+                <label for="id">ID:</label>
+                <input type="text" , id="id", required>
+        </div>
+        <br>
+        <div>
+            <label for="name">Name:</label>
+            <input type="text" , id="name", required>
+    </div>
+    <br>
+    <div>
+        <label for="date">Date of Birth:</label>
+        <input type="date" , id="date", required>
+    </div>
+    <br>
+    <div>
+        <label for="gpa">GPA:</label>
+        <input type="number" , id="gpa", step="0.01" , min="0.01" max="4" , required>
+    </div>
+    <br>
+    <div>
+        <label for="gender">Gender:</label>
+        <select id="gender">
+            <option >select</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+        </select>
+    </div>
+    <br>
+    <div>
+        <label for="lvl">Level:</label>
+        <input type="number" , id="lvl", step="1" , min="1" max="4" , required>
+    </div>
+    <br>
+    <div>
+        <label for="sta">Status:</label>
+        <select id="sta">
+            <option >select</option>
+            <option value="act">active</option>
+            <option value="inact">inactive</option>
+        </select>
+    </div>
+    <br>
+    <div>
+        <label for="dep">Department:</label>
+        <select id="dep">
+            <option >select</option>
+            <option value="is" >IS</option>
+            <option value="ai">AI</option>
+            <option value="cs">CS</option>
+            <option value="ds">DS</option>
+            <option value="it">IT</option>
+        </select>
+    </div>
+    <br>
+    <div>
+        <label for="ema">Email:</label>
+        <input type="email" ,id="ema", required>
+    </div>
+    <br>
+    <div>
+        <label for="mob">Phone number:</label>
+        <input type="number" , id="mob" , required>
+    </div>
+    <br>
+    <div>
+        <label for="pass">password:</label>
+        <input type="password" , id="pass" , required>
+    </div>
+    <br>
+    <input type="submit">
+
+    </form>
+</body>
+</html>
