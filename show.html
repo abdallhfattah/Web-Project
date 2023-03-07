@@ -1,0 +1,133 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Show all Students Page</title>
+</head>
+<body>
+<header id="header"></header>
+<div id="content">
+    <h1 id="title"> Show all Students </h1>
+    <div id="check-box">
+        <div>
+            <h4>Filter students by: </h4>
+            <input type="checkbox" id="ID" name="ID" checked>
+            <label>ID</label>
+            <input type="checkbox" id="Name" name="Name" checked>
+            <label>Name</label>
+            <input type="checkbox" id="GPA" name="GPA" checked>
+            <label>GPA</label>
+            <input type="checkbox" id="Level" name="Level" checked>
+            <label>Level</label>
+            <input type="checkbox" id="Department" name="Department" checked>
+            <label>Department</label>
+            <input type="checkbox" id="Date Of Birth" name="Date Of Birth" checked>
+            <label>Data of Birth</label>
+            <input type="checkbox" id="Gender" name="Gender" checked>
+            <label>Gender</label>
+            <input type="checkbox" id="Status" name="Status" checked>
+            <label >Status</label>
+            <input type="checkbox" id="Email" name="Email" checked>
+            <label>Email</label>
+            <input type="checkbox" id="Mobile Number" name="Mobile Number" checked> 
+            <label>Mobile Number</label>
+            <br> <br>
+        
+
+        </div>
+
+        <table class = "content-table" border = "1">
+            <thead>
+                <th class="ID">ID</th>
+                <th class="Name">Name</th>
+                <th class="GPA">GPA</th>
+                <th class="Level">Level</th>
+                <th class="Department">Department</th>
+                <th class="Date Of Birth">Date Of Birth</th>
+                <th class="Gender">Gender</th>
+                <th class="Status">Status</th>
+                <th class="Email">Email</th>
+                <th class="Mobile Number">Mobile Number</th> 
+            </thead>
+            <tbody id = table-body>
+                <tr>
+                    <td>20210169</td>
+                    <td>seif eldin mahmoud helmy</td>
+                    <td>3.7</td>
+                    <td>2</td>
+                    <td>General</td>
+                    <td>2003/9/17</td>
+                    <td>Male</td>
+                    <td>Active<input type="checkbox" id="Status" name="Status" checked>
+                    </td>
+                    <td>seifhelmy777@gmail.com</td>
+                    <td>01123646434</td>
+                  </tr>
+                  <tr>
+                    <td>20210219</td>
+                    <td>abdallah fattah</td>
+                    <td>3</td>
+                    <td>2</td>
+                    <td>General</td>
+                    <td>2003/10/17</td>
+                    <td>Male</td>
+                    <td>Active<input type="checkbox" id="Status" name="Status" checked>
+                    </td>
+                    <td>abdallh.fattah33@gmail.com</td>
+                    <td>01066244988</td>
+                  </tr>
+                  <tr>
+                    <td>20210169</td>
+                    <td>seif eldin mahmoud helmy</td>
+                    <td>3.7</td>
+                    <td>2</td>
+                    <td>General</td>
+                    <td>2003/9/17</td>
+                    <td>Male</td>
+                    <td>Active<input type="checkbox" id="Status" name="Status" checked>
+                    </td>
+                    <td>seifhelmy777@gmail.com</td>
+                    <td>01123646434</td>
+                  </tr>
+                  <tr>
+                    <td>20210169</td>
+                    <td>seif eldin mahmoud helmy</td>
+                    <td>3.7</td>
+                    <td>2</td>
+                    <td>General</td>
+                    <td>2003/9/17</td>
+                    <td>Male</td>
+                    <td>Active<input type="checkbox" id="Status" name="Status" checked>
+                    </td>
+                    <td>seifhelmy777@gmail.com</td>
+                    <td>01123646434</td>
+                  </tr>
+                  <tr>
+                    <td>20210219</td>
+                    <td>abdallah fattah</td>
+                    <td>3</td>
+                    <td>2</td>
+                    <td>General</td>
+                    <td>2003/10/17</td>
+                    <td>Male</td>
+                    <td>Active<input type="checkbox" id="Status" name="Status" checked>
+                    </td>
+                    <td>abdallh.fattah33@gmail.com</td>
+                    <td>01066244988</td>
+                  </tr>
+            </tbody>
+    
+        </table>
+
+    </div>
+    <button ><span> Ok </span> </button>
+            <button> <span>Apply</span></button>
+</div>
+
+<footer id="app-footer"></footer>
+</body>
+<script src="{% static 'js/getAll.js' %}"></script>
+</html>
