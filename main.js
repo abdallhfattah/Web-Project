@@ -14,8 +14,8 @@ let header = `<div id="header">
 
 document.getElementById('header').innerHTML=header;
 let footer = `<dev class="footer">
-<a href="Home.html">HOME</a>
-<a href="ABOUT.html">ABOUT</a>
+<a href="home.html">HOME</a>
+<a href="about.html">ABOUT</a>
 <a href="login.html">LOGIN</a>
 <a href="register.html"> REGISTER</a>
 <a href="menu.html"> MENU</a>
