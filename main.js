@@ -6,19 +6,41 @@ let header = `<div id="header">
       <li><a href="about.html">About</a></li>
       <li><a href="login.html">Login</a></li>
       <li><a href="register.html">Register</a></li>
-      <li><a href="menu.html" class=""> Menu</a></li>
-      <li><a href="home.html">Home</a></li>
+      <li><div class="dropdown">
+      <button onclick="myFunction()" class="dropbtn">Menu</button>
+      <div id="myDropdown" class="dropdown-content">
+        <a href="search.html">Search</a>
+        <a href="edit.html">Edit</a>
+        <a href="select.html">Select</a>
+        <a href="show.html">Show</a>
+      </div>
+    </div></li>
+      <li><a  href="home.html">Home</a></li>
 
     </ul>
 </ul></div>`
 
 document.getElementById('header').innerHTML=header;
 let footer = `<dev class="footer">
-<a href="home.html">HOME</a>
-<a href="about.html">ABOUT</a>
-<a href="login.html">LOGIN</a>
-<a href="register.html"> REGISTER</a>
-<a href="menu.html"> MENU</a>
 </dev>`
 
 document.getElementById('footer').innerHTML=footer;
+
+
+function myFunction() {
+  document.getElementById("myDropdown").classList.toggle("show");
+}
+
+// Close the dropdown menu if the user clicks outside of it
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
