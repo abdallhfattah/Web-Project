@@ -21,9 +21,23 @@ let header = `<div id="header">
 </ul></div>`
 
 document.getElementById('header').innerHTML=header;
-let footer = `<dev class="footer">
-</dev>`
+let footer = `
+<div class="footer-basic">  
 
+        <footer>
+            <ul class="list-inline">
+            <li style="float: left;; "><img src = "facultyLogo.webp" id="universityLogo"></li>
+        <li style="float: left; "><img src = "universityLogo.webp"  id="facultyLogo"></li>
+                <li class="list-inline-item"><a href="home.html">Home</a></li>
+                <li class="list-inline-item"><a href="login.html">Add Student</a></li>
+                <li class="list-inline-item"><a href="show.html">Show all students</a></li>
+                <li class="list-inline-item"><a href="search.html">search/edit</a></li>
+                <li class="list-inline-item"><a href="about.html">About</a></li>
+            </ul>
+            <p class="copyright">Copyright © 2022-2023 Faculty of Computers and Artificial Intelligence 5 Dr. Ahmed Zewail Street, Postal Code: 12613, Orman, Giza, Egypt.</p>
+        </footer>
+    </div>
+`;
 document.getElementById('footer').innerHTML=footer;
 
 
