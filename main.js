@@ -26,8 +26,8 @@ let footer = `
 
         <footer>
             <ul class="list-inline">
-            <li style="float: left;; "><img src = "facultyLogo.webp" id="universityLogo"></li>
-        <li style="float: left; "><img src = "universityLogo.webp"  id="facultyLogo"></li>
+            <li style="float: left;; "><img src = "Logos/facultyLogo.webp" id="universityLogo"></li>
+        <li style="float: left; "><img src = "Logos/universityLogo.webp"  id="facultyLogo"></li>
                 <li class="list-inline-item"><a href="home.html">Home</a></li>
                 <li class="list-inline-item"><a href="login.html">Add Student</a></li>
                 <li class="list-inline-item"><a href="show.html">Show all students</a></li>
