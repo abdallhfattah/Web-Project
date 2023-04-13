@@ -1,47 +1,74 @@
 <!DOCTYPE html>
 <html>
+    <head>
+        <link rel="stylesheet" href="editUI.css">
+        <link rel="stylesheet" href="mater.css">
+        <!-- <script defer src="index.js"></script> -->
+    </head>
     <body>
-        <p>Edit student</p>
-        <div>
-            <form action="">
-                <label for="sname">Name:</label>
-                <input type="text" name="sname" id="sname" placeholder="student name"><br></br>
-                <label for="id">ID:</label>
-                <input type="number" min="1" step="1" placeholder="ID"><br></br>
-                <label for="GPA">GPA:</label>
-                <input type="number" min="0" step="0.01" placeholder="GPA"><br></br>
-                <label for="Email">Email:</label>
-                <input type="text" name="Email" id="Email" placeholder="Email"><br></br>
-                <label for="date">Date of Birth:</label>
-                <input type="date" id="date" name="name"><br></br>
-                <label for="Gender">Gender:</label>
-                <select name="gender" id="gender">
-                    <option>select</option>
-                    <option value="Male">Male</option>
-                    <option value="female">Female</option>
-                </select><br></br>
-                <label for="level">level:</label>
-                <input type="number" min="0" max="4" step="1"><br></br>
-                <label for="status">Status:</label>
-                <select name="status" id="status">
-                    <option>select</option>
-                    <option value="act">active</option>
-                    <option value="inact">inactive</option>
-                </select><br></br>
-                <label for="depnum">Department:</label>
-                <select name="depnum" id="depnum">
-                    <option>select</option>
-                    <option value="is">IS</option>
-                    <option value="ai">AI</option>
-                    <option value="cs">CS</option>
-                    <option value="ds">DS</option>
-                    <option value="it">IT</option>
-                </select><br></br>
-                <label for="mobnum">Mobile Number:</label>
-                <input type="text" id="mobnum" name="mobnum" placeholder="Mobile Number"><br></br>
-                <input type="submit" id="edit" name="edit" value="Edit">
-                <input type="reset" id="delete" name="delete" value="delete">
-            </form>
-        </div>
-    </body>
+        <header id="header"></header>
+        <div id = "edit-title">Edit Student</div>
+        <div id = "content">
+                <div class = "input-box">
+                    <span class="details">Name:</span>
+                    <input type="text" class="in" placeholder="Name"><br></br>
+                </div>
+                <div class = "input-box">
+                    <span class="details">ID:</span>
+                    <input type="number" class="in" min="1" step="1" placeholder="ID"><br></br>
+                </div>
+                <div class = "input-box">
+                    <span class="details">GPA:</span>
+                    <input type="number" class="in" min="0" step="0.01" placeholder="GPA"><br></br>
+                </div>
+                <div class = "input-box">
+                    <span class="details">Email:</span>
+                    <input type="text" class="in" placeholder="Email"><br></br>
+                </div>
+                <div class = "input-box">
+                    <span class="details">Date of Birth:</span>
+                    <input type="date" class="in"><br></br>
+                </div>
+                <div class = "input-box">
+                    <span class="details">Gender:</span>
+                    <select class="in">
+                        <option>select</option>
+                        <option value="Male">Male</option>
+                        <option value="female">Female</option>
+                    </select><br></br>
+                </div>
+                <div class = "input-box">
+                    <span class="details">level:</span>
+                    <input type="number" class="in" min="0" max="4" step="1" placeholder="Level"><br></br>
+                </div>
+                <div class = "input-box">
+                    <span class="details">Status:</span>
+                    <select class="in">
+                        <option>select</option>
+                        <option value="act">active</option>
+                        <option value="inact">inactive</option>
+                    </select><br></br>
+                </div>
+                <div class = "input-box">
+                    <span class="details">Department:</span>
+                    <select class = "in">
+                        <option>select</option>
+                        <option value="is">IS</option>
+                        <option value="ai">AI</option>
+                        <option value="cs">CS</option>
+                        <option value="ds">DS</option>
+                        <option value="it">IT</option>
+                    </select><br></br>
+                </div>
+                <div class = "mob-num">
+                    <span class="details">Mobile Number:</span>
+                    <input type="text" class="in" placeholder="Mobile Number"><br></br>
+                </div>
+                <div class = "input-box">
+                    <input type="submit" class="btn">
+                    <input type="reset" class ="btn">
+                </div>
+            </div>
+        </body>
+        <footer id="footer"></footer>
 </html>
