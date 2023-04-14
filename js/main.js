@@ -11,22 +11,22 @@ href = "https://fontawesome.com/icons/building-columns?f=classic&s=regular"/>
     <span>I</span>
     </label></li>
     <ul>
-      <li><a href="about.html">About</a></li>
-      <li><a href="login.html">Login</a></li>
-      <li><a href="register.html">Register</a></li>
+      <li><a href="../pages/about.html">About</a></li>
+      <li><a href="../pages/login.html">Login</a></li>
+      <li><a href="../pages/register.html">Register</a></li>
       <li><div class="dropdown">
       <button onclick="myFunction()" class="dropbtn">Menu</button>
       <div id="myDropdown" class="dropdown-content">
-        <a href="search.html">Search</a>
-        <a href="edit.html">Edit</a>
-        <a href="select.html">Select</a>
-        <a href="show.html">Show</a>
+        <a href="../pages/search.html">Search</a>
+        <a href="../pages/edit.html">Edit</a>
+        <a href="../pages/select.html">Select</a>
+        <a href="../pages/show.html">Show</a>
       </div>
     </div></li>
-      <li><a  href="home.html">Home</a></li>
+      <li><a  href="../pages/home.html">Home</a></li>
 
     </ul>
-</ul></div>`
+</ul></div>`;
 
 document.getElementById('header').innerHTML=header;
 let footer = `
@@ -46,8 +46,8 @@ let footer = `
         </footer>
     </div>
 `;
-document.getElementById('footer').innerHTML=footer;
-
+document.getElementById('footer').innerHTML = footer;
+  
 
 function myFunction() {
   document.getElementById("myDropdown").classList.toggle("show");
