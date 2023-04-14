@@ -4,29 +4,46 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/mater.css" />
+    <script defer src="js/main.js"></script>
     <title>login page</title>
   </head>
+  <header>
+    <div id="header"></div>
+  </header>
   <body>
-    <a href="home.html">Home</a>
-    <h1>Login page</h1>
-    <br />
-    <br />
-    <center>
-      <form>
-        <div>
-          <h2>
-            <label for="id">ID:</label> <input type="text" id="id" required />
-          </h2>
+    <div class="center">
+      <!--<img src = 'Logos/Login page.webp' alt = 'gradient'> -->
+      <h1>Login</h1>
+      <form method="post">
+        <!-- Form of Login Page -->
+        <div class="txt_field">
+          <input type="text" required />
+          <span></span>
+          <label>ID </label>
         </div>
-
-        <div>
-          <h2>
-            <label for="pass">Password:</label>
-            <input type="password" id="pass" required />
-          </h2>
+        <div class="txt_field">
+          <input type="password" required />
+          <span></span>
+          <label>Password </label>
         </div>
-        <h2><input type="submit" value="Login" /></h2>
+        <div id = "forget">
+          <input type="checkbox" name="remeber_me" />
+          <span>
+            Remeber me
+          </span>
+          <div class="pass">Forgot Password?</div> 
+        </div>
+          <input type="submit" value="Login" />
+        <div class="register">
+          Not registered ? <a href="register.html">register</a>
+        </div>
       </form>
-    </center>
+      <br />
+      <br />
+    </div>
   </body>
 </html>
+
+<!--<label for="remeber">Remeber me</label>
+-->

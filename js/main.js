@@ -1,7 +1,15 @@
 let header = `<div id="header">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css", 
+href = "https://fontawesome.com/icons/building-columns?f=classic&s=regular"/>
 <div>
   <ul>
-    <li style="float: left;padding: 10px;" id="facultyName"><label>Faculty of computers and artificial intelligence</label></li>
+    <li id="facultyName"><label>
+    <i class="fa-regular fa-building-columns"></i>
+    <span>F</span>
+    <span>C</span>
+    <span>A</span>
+    <span>I</span>
+    </label></li>
     <ul>
       <li><a href="about.html">About</a></li>
       <li><a href="login.html">Login</a></li>
