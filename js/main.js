@@ -1,24 +1,32 @@
 let header = `<div id="header">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css", 
+href = "https://fontawesome.com/icons/building-columns?f=classic&s=regular"/>
 <div>
   <ul>
-    <li style="float: left;padding: 10px;" id="facultyName"><label>Faculty of computers and artificial intelligence</label></li>
+    <li id="facultyName"><label>
+    <i class="fa-regular fa-building-columns"></i>
+    <span>F</span>
+    <span>C</span>
+    <span>A</span>
+    <span>I</span>
+    </label></li>
     <ul>
-      <li><a href="about.html">About</a></li>
-      <li><a href="login.html">Login</a></li>
-      <li><a href="register.html">Register</a></li>
+      <li><a href="../pages/about.html">About</a></li>
+      <li><a href="../pages/login.html">Login</a></li>
+      <li><a href="../pages/register.html">Register</a></li>
       <li><div class="dropdown">
       <button onclick="myFunction()" class="dropbtn">Menu</button>
       <div id="myDropdown" class="dropdown-content">
-        <a href="search.html">Search</a>
-        <a href="edit.html">Edit</a>
-        <a href="select.html">Select</a>
-        <a href="show.html">Show</a>
+        <a href="../pages/search.html">Search</a>
+        <a href="../pages/edit.html">Edit</a>
+        <a href="../pages/select.html">Select</a>
+        <a href="../pages/show.html">Show</a>
       </div>
     </div></li>
-      <li><a  href="home.html">Home</a></li>
+      <li><a  href="../pages/home.html">Home</a></li>
 
     </ul>
-</ul></div>`
+</ul></div>`;
 
 document.getElementById('header').innerHTML=header;
 let footer = `
@@ -38,8 +46,8 @@ let footer = `
         </footer>
     </div>
 `;
-document.getElementById('footer').innerHTML=footer;
-
+document.getElementById('footer').innerHTML = footer;
+  
 
 function myFunction() {
   document.getElementById("myDropdown").classList.toggle("show");

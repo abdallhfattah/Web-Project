@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/mater.css" />
+    <link rel="stylesheet" href="../css/log_reg.css" />
+    <script defer src = ../js/main.js></script>
+    <script defer src = "../js/localStorage.js"></script>
+    <title>Registration page</title>
+  </head>
+  <header>
+    <div id="header"></div>
+  </header>
+  <body>
+    <div class="center">
+      <h1>Registration Page</h1>
+      <form>
+          <!-- ID -->
+          <label for="id">ID</label>
+          <input type="text" , id="id" , required />
+          <!-- Name -->
+          <label for="name">Name</label>
+          <input type="text" , id='name' , required />
+          <!-- date of birth -->
+          <label for="date">Date of Birth</label>
+          <input type="date" , id="date" , required />
+          <!-- gpa -->
+          <label for="gpa" id="gpa">GPA</label>
+          <!-- Number -->
+          <input type="number", id="gpa" , step="0.01" , min="0.01"  max="4",required/>
+          <!-- Gender -->
+          <label for="gender">Gender</label>
+          <select id="gender" , name = "gender">
+              <option>select</option>
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+          </select>
+          <!-- Level -->
+          <label for="lvl" id="lvl">Level</label>
+          <input type="number" , id="lvl" , step="1" , min="1" max="4" , required/>
+          <!-- status -->
+          <label for="sta">Status</label>
+          <select id="sta">
+            <option>select</option>
+            <option value="act">active</option>
+            <option value="inact">inactive</option>
+          </select>
+          <!-- department -->
+          <label for="dep">Department</label>
+          <select id="department">
+            <option>select</option>
+            <option value="is">IS</option>
+            <option value="ai">AI</option>
+            <option value="cs">CS</option>
+            <option value="ds">DS</option>
+            <option value="it">IT</option>
+          </select>
+          <!-- Email -->
+          <label for="ema">Email</label>
+          <input type="email" ,id="ema" ,pattern=".+@[A-Z]\.com" , required />
+          <!-- phone number -->
+          <br/>
+          <label for="mob">Phone number</label>
+          <input type="tel" ,pattern="[0125][0-9]{9}" , id="phone" , required />
+          <!-- Password -->
+          <label for="pass">password</label>
+          <input type="password" , id="pass" , required />
+        <button type = "submit" , id = "btn">SUMBIT</button>
+      </form>
+    </div>
+  </body>
+  <!-- <footer>
+    <div id = "footer" ></div>
+  </footer> -->
+</html>
+
