@@ -17,7 +17,7 @@ body{
     margin-top: 3%;
     background-color: white;
     width: 60%;
-    padding-left: 400px;
+    padding-left: 500px;
     padding-top: 50px;
     padding-bottom: 60px;
     border-radius: 1em;
@@ -35,7 +35,7 @@ body{
     text-align: left;
     
 }
-input[type = "submit"], input[type = "reset"]{
+button[type = "submit"], button[type = "reset"]{
     background-color: #5dd58b;
     /* border: none; */
     color: white;
@@ -48,12 +48,12 @@ input[type = "submit"], input[type = "reset"]{
     transition-duration: 0.4s;
     border-color: #5dd58b;
 }
-input[type="reset"]:hover {
+button[type="reset"]:hover {
     background-color: white;
     color: #5dd58b;
     border-radius: 12px;
 }
-input[type="submit"]:hover {
+button[type="submit"]:hover {
     background-color: white;
     color: #5dd58b;
     border-radius: 12px;

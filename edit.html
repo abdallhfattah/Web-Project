@@ -5,6 +5,7 @@
         <link rel="stylesheet" href="mater.css">
         <link rel="stylesheet" href="">
         <script defer src="main.js"></script>
+        <script defer src="editJS.js"></script>
     </head>
     <body>
         <header id="header"></header>
@@ -12,27 +13,27 @@
         <div id = "content">
                 <div class = "input-box">
                     <span class="details">Name:</span>
-                    <input type="text" class="in" placeholder="Name"><br></br>
+                    <input type="text" class="in" placeholder="Name" id = "name" ><br></br></input>
                 </div>
                 <div class = "input-box">
                     <span class="details">ID:</span>
-                    <input type="number" class="in" min="1" step="1" placeholder="ID"><br></br>
+                    <input type="number" class="in" min="1" step="1" placeholder="ID" id = "id" ><br></br>
                 </div>
                 <div class = "input-box">
                     <span class="details">GPA:</span>
-                    <input type="number" class="in" min="0" step="0.01" placeholder="GPA"><br></br>
+                    <input type="number" class="in" min="0" step="0.01" placeholder="GPA" id = "gpa" ><br></br>
                 </div>
                 <div class = "input-box">
                     <span class="details">Email:</span>
-                    <input type="text" class="in" placeholder="Email"><br></br>
+                    <input type="text" class="in" placeholder="Email" id = "email" ><br></br>
                 </div>
                 <div class = "input-box">
                     <span class="details">Date of Birth:</span>
-                    <input type="date" class="in"><br></br>
+                    <input type="date" class="in" id="date" ><br></br>
                 </div>
                 <div class = "input-box">
                     <span class="details">Gender:</span>
-                    <select class="in">
+                    <select class="in" id="gender" >
                         <option>select</option>
                         <option value="Male">Male</option>
                         <option value="female">Female</option>
@@ -40,11 +41,11 @@
                 </div>
                 <div class = "input-box">
                     <span class="details">level:</span>
-                    <input type="number" class="in" min="0" max="4" step="1" placeholder="Level"><br></br>
+                    <input type="number" class="in" min="0" max="4" step="1" placeholder="Level" id = "level" ><br></br>
                 </div>
                 <div class = "input-box">
                     <span class="details">Status:</span>
-                    <select class="in">
+                    <select class="in" id = "status" >
                         <option>select</option>
                         <option value="act">active</option>
                         <option value="inact">inactive</option>
@@ -52,7 +53,7 @@
                 </div>
                 <div class = "input-box">
                     <span class="details">Department:</span>
-                    <select class = "in">
+                    <select class = "in" id = "dep" >
                         <option>select</option>
                         <option value="is">IS</option>
                         <option value="ai">AI</option>
@@ -63,11 +64,11 @@
                 </div>
                 <div class = "mob-num">
                     <span class="details">Mobile Number:</span>
-                    <input type="text" class="in" placeholder="Mobile Number"><br></br>
+                    <input type="text" class="in" placeholder="Mobile Number" id = "mobile-number" ><br></br>
                 </div>
                 <div class = "input-box">
-                    <input type="submit" class="btn">
-                    <input type="reset" class ="btn">
+                    <button type="submit" class="btn" onclick="check()"><span>Submit</span></button>
+                    <button type="reset" class ="btn" onclick="deleteStudent()"><span>Reset</span></button>
                 </div>
             </div>
         </body>
