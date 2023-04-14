@@ -53,6 +53,7 @@ function check()
 
     localStorage.setItem(ID,JSON.stringify(student));
 }
+
 function deleteStudent()
 {
     var deltByID = document.getElementById("id");
