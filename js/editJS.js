@@ -15,7 +15,7 @@ function check()
     }
     var GPA = document.getElementById("gpa").value;
     var Email = document.getElementById("email").value;
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const emailRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
     if (!emailRegex.test(Email)) {
         alert("Please enter a valid email")
     }
@@ -41,11 +41,10 @@ function check()
     }
     var student = {
         N : Name,
-        I: ID,
         G: GPA,
         E: Email,
-        DOB: Date,
         G:Gender,
+        Dob: Date,
         S: Status,
         L: Level,
         D:Department,
