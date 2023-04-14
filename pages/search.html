@@ -3,10 +3,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/searchUI.css">
-    <link rel="stylesheet" href="css/mater.css">
+    <link rel="stylesheet" href="../css/searchUI.css">
+    <link rel="stylesheet" href="../css/mater.css">
     <title>Search for a Student Page</title>
-    <script defer src="main.js"></script>
+    <script defer src="../js/main.js"></script>
+    <script src="../js/search.js"></script>
   </head>
   <header>
     <div id="header"></div>  
@@ -16,7 +17,7 @@
       <h1 id="top-text">Search for Student</h1>
       <div class="back">
         <div class="search">
-          <input type="text" placeholder="Search by name.." name="search">
+          <input type="text" onkeyup="mysearchfun()" id="myinput" placeholder="Search by name.." name="search">
         </div>
 <div class="table_con">
     <table>
@@ -39,7 +40,7 @@
         <tbody>
          
             <tr>
-                <td>20210169</td>
+                <td>20210052</td>
                 <td>Adham Adel Mohammed</td>
                 <td>3.3</td>
                 <td>2</td>
@@ -169,13 +170,15 @@
     <div class ="buttons">
     
       <a href="edit.html">
-        <button>
+        <button class="buttonedit">
           EDIT/DELETE
         </button>
       </a>
     
     </div>
+  </div>
+  <footer id="footer"></footer>
     </body>
-      </div>
+      
         
 </html>

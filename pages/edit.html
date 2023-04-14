@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="../css/editUI.css">
+        <link rel="stylesheet" href="../css/mater.css">
+        <link rel="stylesheet" href="">
+        <script defer src="../js/main.js"></script>
+    </head>
+    <body>
+        <header id="header"></header>
+        <div id = "edit-title">Edit Student</div>
+        <div id = "content">
+                <div class = "input-box">
+                    <span class="details">Name:</span>
+                    <input type="text" class="in" placeholder="Name"><br></br>
+                </div>
+                <div class = "input-box">
+                    <span class="details">ID:</span>
+                    <input type="number" class="in" min="1" step="1" placeholder="ID"><br></br>
+                </div>
+                <div class = "input-box">
+                    <span class="details">GPA:</span>
+                    <input type="number" class="in" min="0" step="0.01" placeholder="GPA"><br></br>
+                </div>
+                <div class = "input-box">
+                    <span class="details">Email:</span>
+                    <input type="text" class="in" placeholder="Email"><br></br>
+                </div>
+                <div class = "input-box">
+                    <span class="details">Date of Birth:</span>
+                    <input type="date" class="in"><br></br>
+                </div>
+                <div class = "input-box">
+                    <span class="details">Gender:</span>
+                    <select class="in">
+                        <option>select</option>
+                        <option value="Male">Male</option>
+                        <option value="female">Female</option>
+                    </select><br></br>
+                </div>
+                <div class = "input-box">
+                    <span class="details">level:</span>
+                    <input type="number" class="in" min="0" max="4" step="1" placeholder="Level"><br></br>
+                </div>
+                <div class = "input-box">
+                    <span class="details">Status:</span>
+                    <select class="in">
+                        <option>select</option>
+                        <option value="act">active</option>
+                        <option value="inact">inactive</option>
+                    </select><br></br>
+                </div>
+                <div class = "input-box">
+                    <span class="details">Department:</span>
+                    <select class = "in">
+                        <option>select</option>
+                        <option value="is">IS</option>
+                        <option value="ai">AI</option>
+                        <option value="cs">CS</option>
+                        <option value="ds">DS</option>
+                        <option value="it">IT</option>
+                    </select><br></br>
+                </div>
+                <div class = "mob-num">
+                    <span class="details">Mobile Number:</span>
+                    <input type="text" class="in" placeholder="Mobile Number"><br></br>
+                </div>
+                <div class = "input-box">
+                    <input type="submit" class="btn">
+                    <input type="reset" class ="btn">
+                </div>
+            </div>
+        </body>
+        <footer id="footer"></footer>
+</html>

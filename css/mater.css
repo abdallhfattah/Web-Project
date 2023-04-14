@@ -47,8 +47,8 @@ body{
 }
 /* TODO  make it move*/
 div ul li label:hover{
-    margin-right: 5px;
-    transition: 0.5s;
+  margin-right: 5px;
+  transition: 0.5s;
 }
 /* Login & Register */
 /* ------------------------- Center ------------------------- */
