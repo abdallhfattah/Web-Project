@@ -1,67 +1,31 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-/* ------------------------- Headers ------------------------- */
 .content h1{
-    color: white;
-    font-size: #363538 30px;
-    text-shadow: 0 0 3px #000000;
-    font-family: Helvetica;
-    text-shadow: 20px;  
-    text-align: center; 
+  color: white;
+  font-size: #363538 30px;
+  text-shadow: 0 0 3px #000000;
+  font-family: Helvetica;
+  text-shadow: 20px;  
+  text-align: center; 
 
 }
 .content h2{
-    color: white;
-    font-size: #363538 30px;
-    text-shadow: 0 0 3px #0b0404;
-    text-shadow: 20px;  
-    text-align: center;
+  color: white;
+  font-size: #363538 30px;
+  text-shadow: 0 0 3px #0b0404;
+  text-shadow: 20px;  
+  text-align: center;
 }
 .content{
-  background-color: #aff6cf;
-  background-image: linear-gradient(315deg, #aff6cf 0%, #9f98e8 74%);
+background-color: #aff6cf;
+background-image: linear-gradient(315deg, #aff6cf 0%, #9f98e8 74%);
   padding: 17%;
 }
-
 *{
-  font-family: 'Poppins', sans-serif;
-  padding: 0;
-  margin: 0;
-  scroll-behavior: smooth;
-}
-/* ------------------------- Body ------------------------- */
-body{
-  margin: 0;
-  padding: 0;
-  font-family: montserrat;
-  background: linear-gradient(315deg, #aff6cf 0%, #9f98e8 74%);
-  height: 100vh;
-  overflow: hidden;
-}
-#facultyName{
-  font-size:20px;  
-  color: #000000;
-  font-weight: 800;
-  float: left;
-  padding: 10px;
-  transition: 0.5s;
-}
-/* TODO  make it move*/
-div ul li label:hover{
-  margin-right: 5px;
-  transition: 0.5s;
-}
+padding: 0;
+margin: 0;
 
-/* ------------------------- Images ------------------------- */
-img{
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
 }
-
-/* ------------------------- lists ------------------------- */
-
 li {
-    float :right
+  float :right
 }
 ul {
   list-style: none inside;
@@ -80,13 +44,13 @@ li a {
 li a:hover {
   background-color:  #bdcec6;
   border-radius: 12px;
-  
+ 
 } 
-.footer{
+/* .footer{
   float :right;
   width:10%;
   text-decoration:none;
-}
+} */
 
 .pp{
   text-align: center;
@@ -96,121 +60,127 @@ li a:hover {
 }
 
 
-/* ------------------------- dropdown menu ------------------------- */
+
+
+/* dropdown menu */
 
 .dropbtn {
-  background-color: white;
-  color: black;
-  padding: 10px;
-  font-size: 15px;
-  border: none;
-  cursor: pointer;
-    transition-duration: 0.4s;
+background-color: white;
+color: black;
+padding: 10px;
+font-size: 15px;
+border: none;
+cursor: pointer;
+  transition-duration: 0.4s;
 }
+
 
 .dropbtn:hover, .dropbtn:focus {
-  background-color: #bdcec6;
-  border-radius: 12px;
+background-color: #bdcec6;
+border-radius: 12px;
 }
+
 
 .dropdown {
-  display: inline-block;
+display: inline-block;
 }
+
 
 .dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: white;
-  min-width: 80px;
-  border-radius: 12px;
+display: none;
+position: absolute;
+background-color: white;
+min-width: 80px;
+border-radius: 12px;
 }
 
+
+
+
+
 .dropdown-content a {
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
+color: black;
+padding: 12px 16px;
+text-decoration: none;
+display: block;
 }
+
 
 .dropdown-content a:hover {background-color: #ddd; border-radius: 12px;}
 
-.show {display:block;}
 
-/* ------------------------- Footer ------------------------- */
+.show {display:block;}
 .footer-basic {
-  padding:40px 0;
-  background-color:#ffffff;
-  color:#000000;
-  width: 100%;
-  position: absolute;
-  bottom: 0;
-  left:0;
-  right: 0;
+padding:40px 0;
+background-color:#ffffff;
+color:#000000;
+width: 100%;
+position: relative;
+bottom: 0;
+left:0;
+right: 0;
 }
 
 .footer-basic ul {
-  padding:0;
-  list-style:none;
-  text-align:center;
-  font-size:18px;
-  line-height:1.6;
-  margin-bottom:0;
+padding:0;
+list-style:none;
+text-align:center;
+font-size:18px;
+line-height:1.6;
+margin-bottom:0;
 }
 
 .footer-basic li {
-  padding:0 10px;
+padding:0 10px;
 }
 
 .footer-basic ul a {
-  color:inherit;
-  text-decoration:none;
-  opacity:0.8;
+color:inherit;
+text-decoration:none;
+opacity:0.8;
 }
 
 .footer-basic ul a:hover {
-  opacity:1;
+opacity:1;
 }
 
 .footer-basic .social {
-  text-align:center;
-  padding-bottom:25px;
+text-align:center;
+padding-bottom:25px;
 }
 
 .footer-basic .social > a {
-  font-size:24px;
-  width:40px;
-  height:40px;
-  line-height:40px;
-  display:inline-block;
-  text-align:center;
-  border-radius:50%;
-  border:1px solid #ccc;
-  margin:0 8px;
-  color:inherit;
-  opacity:0.75;
+font-size:24px;
+width:40px;
+height:40px;
+line-height:40px;
+display:inline-block;
+text-align:center;
+border-radius:50%;
+border:1px solid #ccc;
+margin:0 8px;
+color:inherit;
+opacity:0.75;
 }
+
+
 
 .footer-basic .copyright {
-  margin-top:15px;
-  text-align:center;
-  font-size:13px;
-  color:#aaa;
-  margin-bottom:0;
-  text-decoration: none;
+margin-top:15px;
+text-align:center;
+font-size:13px;
+color:#aaa;
+margin-bottom:0;
+text-decoration: none;
 }
-
-/* ------------------------- Logos ------------------------- */
 #facultyLogo{
-  height: 100px;
-  width: 100px;
-  margin-left: 20px;
+height: 100px;
+width: 100px;
+margin-left: 20px;
 }
 
 #universityLogo{
-  height: 100px;
-  width: 100px;
-  margin-right: 2px;
+height: 100px;
+width: 100px;
+margin-right: 2px;
 }
-
-  
-
