@@ -1,5 +1,15 @@
 /* Login & Register */
-/* ------------------------- Center ------------------------- */
+/* ================== Body ================== */
+body{
+    margin: 0;
+    padding: 0;
+    font-family: montserrat;
+    background: linear-gradient(315deg, #aff6cf 0%, #9f98e8 74%);
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* ================== Center ================== */
 .center{
     position: absolute;
     top: 50%;
@@ -7,13 +17,13 @@
     transform: translate(-50%, -50%);
     width: 400px;
     background: white;
-    border-radius: 20px;
+    border-radius: 6px;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.3);
 }
 
-.center h1{
-text-align: center;
-padding: 0 0 20px 0;
-border-bottom: 1px solid silver;
+.center {
+    text-align: center;
+    padding: 20px 0 20px 0;
 }
 .center form{
     padding: 0 40px;
@@ -32,6 +42,7 @@ form .txt_field{
     height: 40px;
     font-size: 16px;
     border: none;
+    border-bottom: #000;
     /*#TODO change it */
     background-color: none;
     outline: none;
@@ -42,7 +53,7 @@ form .txt_field{
     position: absolute;
     top: 50%;
     left: 5px;
-    color: #adadad;
+    color: #332727;
     transform: translateY(-50%);
     font-size: 16px;
     pointer-events: none;
@@ -55,16 +66,16 @@ form .txt_field{
     left:0;
     width: 0%;
     height: 2px;
-    background: #333;
+    background: #000000;
     transition: .5s;
 }
-  /* popping text up once clicked on field */
+
 .txt_field input:focus ~ label,
 .txt_field input:valid ~ label{
     top : -5px;
     color: #333;
 }
-/* line under */
+
 .txt_field input:focus ~ span::before,
 .txt_field input:valid ~ span::before{
     width: 100%;
@@ -81,8 +92,9 @@ form .txt_field{
     text-decoration: underline;
 }
 
-  /* Login button */
-input[type="submit"]{
+/* ================== Login button ================== */
+
+div input[type="submit"]{
     width: 100%;
     height: 50px;
     text-transform: uppercase;

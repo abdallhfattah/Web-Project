@@ -1,15 +1,16 @@
 // const submit_button = document.getElementById("btn");
+import { check } from "validation.js";
 
 function addStudent(){
+    check();
     var ID = document.getElementById("id").value;
-    console.log(ID);
     var Name = document.getElementById("name").value;
     var date = document.getElementById("date").value;
     var gpa = document.getElementById("gpa").value;
     var gender = document.getElementById("gender").value;
-    var level = document.getElementById("lvl").value;
-    var stat= document.getElementById("sta").value;
-    var email = document.getElementById("ema").value; // error
+    var level = document.getElementById("level").value;
+    var stat= document.getElementById("status").value;
+    var email = document.getElementById("email").value; // error
     var dep =  document.getElementById("department").value;
     var phone = document.getElementById("phone").value;
     var student = {

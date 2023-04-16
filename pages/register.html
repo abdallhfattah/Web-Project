@@ -1,80 +1,134 @@
 <!DOCTYPE html>
+<!--=== Coding by CodingLab | www.codinglabweb.com === -->
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../css/mater.css" />
-    <link rel="stylesheet" href="../css/log_reg.css" />
-    <script defer src = ../js/main.js></script>
-    <script defer src = "../js/localStorage.js"></script>
-    <title>Registration page</title>
-  </head>
-  <header>
-    <div id="header"></div>
-  </header>
-  <body>
-    <div class="center">
-      <h1>Registration</h1>
-      <form>
-          <!-- ID -->
-          <div>
-          <label for="id">ID</label>
-          <input type="text" , id="id" , required />
-          </div>
-          <!-- Name -->
-          <label for="name">Name</label>
-          <input type="text" , id='name' , required />
-          <!-- date of birth -->
-          <label for="date">Date of Birth</label>
-          <input type="date" , id="date" , required />
-          <!-- gpa -->
-          <label for="gpa" id="gpa">GPA</label>
-          <!-- Number -->
-          <input type="number", id="gpa" , step="0.01" , min="0.01"  max="4",required/>
-          <!-- Gender -->
-          <label for="gender">Gender</label>
-          <select id="gender" , name = "gender">
-              <option>select</option>
-              <option value="male">Male</option>
-              <option value="female">Female</option>
-          </select>
-          <!-- Level -->
-          <label for="lvl" id="lvl">Level</label>
-          <input type="number" , id="lvl" , step="1" , min="1" max="4" , required/>
-          <!-- status -->
-          <label for="sta">Status</label>
-          <select id="sta">
-            <option>select</option>
-            <option value="act">active</option>
-            <option value="inact">inactive</option>
-          </select>
-          <!-- department -->
-          <label for="dep">Department</label>
-          <select id="department">
-            <option>select</option>
-            <option value="is">IS</option>
-            <option value="ai">AI</option>
-            <option value="cs">CS</option>
-            <option value="ds">DS</option>
-            <option value="it">IT</option>
-          </select>
-          <!-- Email -->
-          <label for="ema">Email</label>
-          <input type="email"  id ="ema"  required />
-          <!-- phone number -->
-          <br/>
-          <label for="mob">Phone number</label>
-          <input type="tel"  id="phone"  required />
-          <!-- Password -->
-          <label for="pass">password</label>
-          <input type="password" , id="pass" , required />
-        <button type = "submit" , id = "btn" onclick="addStudent()"> <span>SUMBIT</span></button>
-      </form>
-    </div>
-  </body>
-  <!-- <footer>
-    <div id = "footer" ></div>
-  </footer> -->
-</html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!----======== CSS ======== -->
+	<link rel="stylesheet" href="../css/mater.css" />
+    <link rel="stylesheet" href="../css/register.css">
+    <!----===== Iconscout CSS ===== -->
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+	<!----======== SCRIPT ======== -->
+    <script defer src="../js/main.js"></script>
+	<script defer src="../js/localStorage.js"></script>
+    <title>Regisration Form</title> 
+</head>
+<header>
+	<div id="header"></div>
+</header>
+<body>
+    <div class="container">
+        <header>Registration</header>
+        <form action="#">
+            <div class="form first">
+                <div class="details personal">
+                    <span class="title">Personal Details</span>
 
+                    <div class="fields">
+                        <div class="input-field">
+                            <label>Full Name</label>
+                            <input type="text" id ="name" placeholder="Enter your name" required>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Date of Birth</label>
+                            <input type="date" id="date" placeholder="Enter birth date" required>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Email</label>
+                            <input type="text" id ="email" placeholder="Enter your email" required>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Mobile Number</label>
+                            <input type="tel" id="phone" placeholder="Enter mobile number" required>
+                        </div>
+
+						<div class="input-field">
+							<label>Status</label>
+							<select required  id="status">
+                                <option disabled selected>Select status</option>
+                                <option value ="act">Active</option>
+                                <option value ="inact">Inactive</option>
+                            </select>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Gender</label>
+                            <select required  id="gender">
+                                <option disabled selected >Select gender</option>
+                                <option value = "Male">Male</option>
+                                <option value = "Female">Female</option>
+                            </select>
+                        </div>	
+                    </div>
+                </div>
+
+                <div class="details ID">
+                    <span class="title">Faculty Details</span>
+                    <div class="fields">
+                        <div class="input-field">
+                            <label>ID </label>
+                            <input id = "id" type="text" placeholder="Enter ID type" required>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Department</label>
+                            <select required id="department">
+                                <option disabled selected>Select Department</option>
+                                <option value = "IS">Information Systems</option>
+                                <option value = "CS">Computer Science</option>
+                                <option value = "AI">Artificial Intelligence</option>
+								<option value = "IT">Information Technology</option>
+								<option value = "DS">Data Science</option>
+                            </select>
+                        </div>
+
+                        <div class="input-field">
+                            <label>GPA</label>
+                            <input type="number" id="gpa" min = "0.01" max ="4" step ="0.01" placeholder="Enter GPA" required>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Level</label>
+                            <select id="level" required>
+								<option disabled selected>Select Level</option>
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+							</select>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Password</label>
+                            <input type="password" id="pass" placeholder="Enter your Password" required>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Confirm Password</label>
+                            <input id="confirm-pass" type="password" placeholder="Confirm password" required>
+                        </div>
+                    </div>
+
+					<div class = "add-button">
+                    <button class="nextBtn" onclick="addStudent()">
+                        <span class="btnText"> Add </span>
+                    </button>
+					</div>
+					<div class = "login">
+						Aready have an account ? <a href="login.html">Login</a>
+					</div>
+                </div> 
+            </div>
+        </form>
+    </div>	
+</body>
+
+<!-- <footer id="footer">
+</footer>	 -->
+</html>
