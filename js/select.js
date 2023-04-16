@@ -5,8 +5,9 @@ document.getElementById("ok-button").addEventListener("click", function() {
     var id = document.getElementById("id").value;
     var name = document.getElementById("name").value;
     var department = document.getElementById("department").value;
-    var level = localStorage.getItem('student-lvl');
-    const lvl= '3';
+    var level = JSON.parse(localStorage.getItem(id))['student_lvl'];
+    
+   
     if(localStorage.getItem(id) == null)
     {
         alert("Please enter a valid id");
@@ -15,13 +16,11 @@ document.getElementById("ok-button").addEventListener("click", function() {
    
 
 
-    // if(level< lvl){
-    //     alert("cannot edit department for this student ");
-    //     return false;
-    // }
+    if(level==2 || level==1){
+        alert("cannot edit department for this student ");
+        return false;
+    }
     
-
-
         var student = JSON.parse(localStorage.getItem(id));
     student.student_name = name;
     student.student_dep = department;
