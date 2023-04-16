@@ -15,10 +15,10 @@ document.getElementById("ok-button").addEventListener("click", function() {
    
 
 
-    if(level< lvl){
-        alert("cannot edit department for this student ");
-        return false;
-    }
+    // if(level< lvl){
+    //     alert("cannot edit department for this student ");
+    //     return false;
+    // }
     
 
 
