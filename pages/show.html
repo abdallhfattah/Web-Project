@@ -3,20 +3,22 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/show.css">
-    <link rel="stylesheet" href="../css/mater.css">
-    <title>Search for a Student Page</title>
-    <script defer src="../js/main.js"></script>
-    <script defer src="../js/show.js"></script>
+    <link rel="stylesheet" href="css/show.css">
+    <link rel="stylesheet" href="css/mater.css">
+    <title>Show all students</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  
+    <script defer src="js/main.js"></script>
+    <script defer src="js/show.js"></script>
+   
+    
+
+
   </head>
-  <header>
-    <div id="header"></div>  
-  </header>
   <body>
     <header id ="header"></header>
       <h1 id="top-text">Show all Students</h1>
       <div class="back">
-        
         <div id = "check-box">
           <h4>Filter students by: </h4>
           <input type="checkbox" id="ID" name="ID" checked>
@@ -39,9 +41,9 @@
           <label>Email</label>
           <input type="checkbox" id="Mobile Number" name="Mobile Number" checked> 
           <label>Mobile Number</label>
-      </div>
+          </div>
 <div class="table_con">
-    <table>
+    <table id="students_table">
 
         <thead>
 
@@ -52,203 +54,26 @@
             <th class="Department">Department</th>
             <th class="Date Of Birth">Date Of Birth</th>
             <th class="Gender">Gender</th>
-            <th class="Status"  style="z-index: 1;">Status</th>
+            <th class="Status"  style="z-index: 1;">Active Status</th>
             <th class="Email">Email</th>
-            <th class="Mobile Number">Mobile Number</th> 
+            <th class="Mobile Number">Mobile Number</th>
             
         </thead>
-
         <tbody>
          
-            <tr>
-                <td>20210169</td>
-                <td>Adham Adel Mohammed</td>
-                <td>3.3</td>
-                <td>2</td>
-                <td>General</td>
-                <td>2002/10/29</td>
-                <td>Male</td>
-                <td>Active 
-                  <label class="toggle">
-                    <input class="toggle-checkbox" type="checkbox" checked>
-                    <div class="toggle-switch"></div>
-                    <span class="toggle-label"></span>
-                  </label>
-                  </td>
-                <td>adhamadelmoh@gmail.com</td>
-                <td>01159698654</td>
-              </tr>
-              <tr>
-                <td>20210169</td>
-                <td>seif eldin mahmoud helmy</td>
-                <td>3.7</td>
-                <td>2</td>
-                <td>General</td>
-                <td>2003/9/17</td>
-                <td>Male</td>
-                <td>Active 
-                  <label class="toggle">
-                    <input class="toggle-checkbox" type="checkbox" checked>
-                    <div class="toggle-switch"></div>
-                    <span class="toggle-label"></span>
-                  </label>
-                  </td>
-                <td>seifhelmy777@gmail.com</td>
-                <td>01123646434</td>
-              </tr>
-              <tr>
-                <td>20210169</td>
-                <td>seif eldin mahmoud helmy</td>
-                <td>3.7</td>
-                <td>2</td>
-                <td>General</td>
-                <td>2003/9/17</td>
-                <td>Male</td>
-                <td>Active 
-                  <label class="toggle">
-                    <input class="toggle-checkbox" type="checkbox" checked>
-                    <div class="toggle-switch"></div>
-                    <span class="toggle-label"></span>
-                  </label>
-                  </td>
-                <td>seifhelmy777@gmail.com</td>
-                <td>01123646434</td>
-              </tr>
-              <tr>
-                <td>20210169</td>
-                <td>seif eldin mahmoud helmy</td>
-                <td>3.7</td>
-                <td>2</td>
-                <td>General</td>
-                <td>2003/9/17</td>
-                <td>Male</td>
-                <td>Active 
-                  <label class="toggle">
-                    <input class="toggle-checkbox" type="checkbox" checked>
-                    <div class="toggle-switch"></div>
-                    <span class="toggle-label"></span>
-                  </label>
-                  </td>
-                <td>seifhelmy777@gmail.com</td>
-                <td>01123646434</td>
-              </tr>
-              <tr>
-                <td>20210169</td>
-                <td>seif eldin mahmoud helmy</td>
-                <td>3.7</td>
-                <td>2</td>
-                <td>General</td>
-                <td>2003/9/17</td>
-                <td>Male</td>
-                <td>Active 
-                  <label class="toggle">
-                    <input class="toggle-checkbox" type="checkbox" checked>
-                    <div class="toggle-switch"></div>
-                    <span class="toggle-label"></span>
-                  </label>
-                  </td>
-                <td>seifhelmy777@gmail.com</td>
-                <td>01123646434</td>
-              </tr>
-              <tr>
-                <td>20210169</td>
-                <td>seif eldin mahmoud helmy</td>
-                <td>3.7</td>
-                <td>2</td>
-                <td>General</td>
-                <td>2003/9/17</td>
-                <td>Male</td>
-                <td>Active 
-                  <label class="toggle">
-                    <input class="toggle-checkbox" type="checkbox" checked>
-                    <div class="toggle-switch"></div>
-                    <span class="toggle-label"></span>
-                  </label>
-                  </td>
-                <td>seifhelmy777@gmail.com</td>
-                <td>01123646434</td>
-              </tr>
-              <tr>
-                <td>20210169</td>
-                <td>seif eldin mahmoud helmy</td>
-                <td>3.7</td>
-                <td>2</td>
-                <td>General</td>
-                <td>2003/9/17</td>
-                <td>Male</td>
-                <td>Active 
-                  <label class="toggle">
-                    <input class="toggle-checkbox" type="checkbox" checked>
-                    <div class="toggle-switch"></div>
-                    <span class="toggle-label"></span>
-                  </label>
-                  </td>
-                <td>seifhelmy777@gmail.com</td>
-                <td>01123646434</td>
-              </tr>
-              <tr>
-                <td>20210169</td>
-                <td>seif eldin mahmoud helmy</td>
-                <td>3.7</td>
-                <td>2</td>
-                <td>General</td>
-                <td>2003/9/17</td>
-                <td>Male</td>
-                <td>Active 
-                  <label class="toggle">
-                    <input class="toggle-checkbox" type="checkbox" checked>
-                    <div class="toggle-switch"></div>
-                    <span class="toggle-label"></span>
-                  </label>
-                  </td>
-                <td>seifhelmy777@gmail.com</td>
-                <td>01123646434</td>
-              </tr>
-              <tr>
-                <td>20210169</td>
-                <td>seif eldin mahmoud helmy</td>
-                <td>3.7</td>
-                <td>2</td>
-                <td>General</td>
-                <td>2003/9/17</td>
-                <td>Male</td>
-                <td>Active 
-                  <label class="toggle">
-                    <input class="toggle-checkbox" type="checkbox" checked>
-                    <div class="toggle-switch"></div>
-                    <span class="toggle-label"></span>
-                  </label>
-                  </td>
-                <td>seifhelmy777@gmail.com</td>
-                <td>01123646434</td>
-              </tr>
-              <tr>
-                <td>20210169</td>
-                <td>seif eldin mahmoud helmy</td>
-                <td>3.7</td>
-                <td>2</td>
-                <td>General</td>
-                <td>2003/9/17</td>
-                <td>Male</td>
-                <td>Active 
-                  <label class="toggle">
-                    <input class="toggle-checkbox" type="checkbox" checked>
-                    <div class="toggle-switch"></div>
-                    <span class="toggle-label"></span>
-                  </label>
-                  </td>
-                <td>seifhelmy777@gmail.com</td>
-                <td>01123646434</td>
-              </tr>
-              
+           
            
         </tbody>
 
     </table>
+    <script>
+      
+    </script>
     
   </div>
-  <button class="btn "  > <span> OK </span> </button>
-  <button class="btn "  > <span>Apply</span></button>
+  <button class="btn " onclick="checkAll()" > <span> Un/Checkall </span> </button>
+  <button class="btn " onclick="applyFilters()" > <span>Apply</span></button>
+
   
   </div>
 
@@ -256,3 +81,4 @@
     </body>
         
 </html>
+    
