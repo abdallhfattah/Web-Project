@@ -1,6 +1,6 @@
 
 
-document.getElementById("ok-button").addEventListener("click", function() {
+document.getElementById("ok").addEventListener("click", function() {
     
     var id = document.getElementById("id").value;
     var name = document.getElementById("name").value;
@@ -25,6 +25,13 @@ document.getElementById("ok-button").addEventListener("click", function() {
     student.student_name = name;
     student.student_dep = department;
     localStorage.setItem(id, JSON.stringify(student));
+    showSuccess();
     
     
 });
+function showSuccess(){
+    let studentName = document.getElementById("name").value;
+    let department = document.getElementById("department").value;
+    let choice = confirm(department + " Department\nHas been selected\nFor student: " + studentName + "\nPress OK if you want to continue or Cancel");
+    return choice;
+}
