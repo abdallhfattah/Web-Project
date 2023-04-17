@@ -29,8 +29,8 @@ function loadTableData() {
   for (var i = 0; i < localStorage.length; i++) {
     var key = localStorage.key(i);
     var stored_student = JSON.parse(localStorage.getItem(key));
-   
-    var row = tableBody.insertRow(-1);
+   if(stored_student.student_stat== 'act'){
+     var row = tableBody.insertRow(-1);
     var idCell = row.insertCell(0);
     var nameCell = row.insertCell(1);
     var gpaCell = row.insertCell(2);
@@ -53,6 +53,8 @@ function loadTableData() {
     statusCell.innerHTML = stored_student.student_stat;
     emailCell.innerHTML = stored_student.student_email;
     mobileCell.innerHTML = stored_student.student_num;
+   }
+   
   }
 }
 
