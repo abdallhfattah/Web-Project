@@ -1,23 +1,24 @@
 /* Login & Register */
 /* ================== Body ================== */
 body{
-    margin: 0;
-    padding: 0;
-    font-family: montserrat;
+    min-height: 10vh;
+    position: relative;
+    align-items: center;
+    justify-content: center;
     background: linear-gradient(315deg, #aff6cf 0%, #9f98e8 74%);
-    height: 100vh;
-    overflow: hidden;
 }
+
 
 /* ================== Center ================== */
 .center{
-    position: absolute;
+    position: relative;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
-    width: 400px;
+    transform: translate(-50%, 35%);
+    width: 25rem;
     background: white;
     border-radius: 6px;
+    margin-bottom: 325px;
     box-shadow: 0 5px 10px rgba(0,0,0,0.3);
 }
 
@@ -132,4 +133,20 @@ text-decoration: underline;
 #forget{
     display: inline-block;
 
+}
+
+/* Success */
+.input-field.success input {
+    border-color: #09c372;
+}
+
+/* Error */
+.input-field.x input {
+    border-color: #ff3860;
+}
+
+.input-field .error {
+    color: #ff3860;
+    font-size: 9px;
+    height: 13px;
 }

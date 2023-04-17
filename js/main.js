@@ -5,7 +5,7 @@ let header = `<div id="header">
     <ul>
       <li><a href="about.html">About</a></li>
       <li><a href="login.html">Login</a></li>
-      <li><a href="register.html">Register</a></li>
+      <li><a href="register.html">add</a></li>
       <li><div class="dropdown">
       <button onclick="myFunction()" class="dropbtn">Menu</button>
       <div id="myDropdown" class="dropdown-content">
@@ -27,10 +27,10 @@ let footer = `
 
         <footer>
             <ul class="list-inline">
-            <li style="float: left;; "><img src = "../Logos/facultyLogo.webp" id="universityLogo"></li>
-            <li style="float: left; "><img src = "../Logos/universityLogo.webp"  id="facultyLogo"></li>
+            <li style="float: left;; "><img src = "../logos/facultyLogo.webp" id="universityLogo"></li>
+            <li style="float: left; "><img src = "../logos/universityLogo.webp"  id="facultyLogo"></li>
               <li class="list-inline-item"><a href="home.html">Home</a></li>
-              <li class="list-inline-item"><a href="login.html">Add Student</a></li>
+              <li class="list-inline-item"><a href="register.html">Add Student</a></li>
                 <li class="list-inline-item"><a href="show.html">Show all students</a></li>
                 <li class="list-inline-item"><a href="search.html">search/edit</a></li>
                 <li class="list-inline-item"><a href="about.html">About</a></li>

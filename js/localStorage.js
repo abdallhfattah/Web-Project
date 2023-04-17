@@ -1,8 +1,6 @@
 // const submit_button = document.getElementById("btn");
-import { check } from "validation.js";
 
-function addStudent(){
-    check();
+export function addStudent(){
     var ID = document.getElementById("id").value;
     var Name = document.getElementById("name").value;
     var date = document.getElementById("date").value;
@@ -13,6 +11,7 @@ function addStudent(){
     var email = document.getElementById("email").value; // error
     var dep =  document.getElementById("department").value;
     var phone = document.getElementById("phone").value;
+    var pass = document.getElementById("pass").value; 
     var student = {
         student_id : ID,
         student_name : Name,
@@ -23,7 +22,8 @@ function addStudent(){
         student_stat : stat,
         student_email : email,
         student_dep : dep,
-        student_num : phone
+        student_num : phone,
+        student_password : pass
     }
 
     // checking values if null
@@ -34,10 +34,8 @@ function addStudent(){
     student.student_gender !== "" &&
     student.student_lvl !== "" &&
     student.student_stat !== "" &&
-    student.student_dep !== "" &&
     student.student_num !== "")
 {
-    
     let is_valid = true;
     // checking if ID , email , phone number is aready in use 
     for(let i = 0; i < localStorage.length; i++){
@@ -62,6 +60,8 @@ function addStudent(){
     // adding student if valid 
     if(is_valid){
         localStorage.setItem(ID, JSON.stringify(student));
+        window.location.reload();
     }
     }
 }
+
