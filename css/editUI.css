@@ -77,10 +77,7 @@ button[type="submit"]:hover {
 .input-box option{
     font-size: medium;
 border-radius: 12px;
-
 }
-
-
 
 .input-box select,
 .input-box input[type="date"]{
@@ -96,5 +93,13 @@ border-radius: 12px;
 .input-box{
     text-align: left;
 }
-
-
+@media  (max-width:981px){
+    #content{
+        padding-left: 100px ;
+        align-items: center;
+        width: 40%;
+    }
+    #footer{
+        padding-top: 850px;
+    }
+}
