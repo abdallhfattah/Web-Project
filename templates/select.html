@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!--css for phass two -->
+<link rel="stylesheet" href="../css/select.css" />
+<link rel="stylesheet" href="../css/mater.css">
+<script defer src="../js/main.js"></script>
+<script defer src="../js/select.js"></script>
+</head>    
+
+
+<body>
+    <header id="header"></header>
+    <div class="header">
+        <h2>
+        <p>Select Department</p>
+        </h2>
+    </div>
+    <div class="container">
+    
+        <div class="select">    
+            <div id = "inputbox">
+            
+                <input type="number"  min="1" placeholder="Student ID" required id="id">
+
+
+            </div>
+            <div id = "inputbox">
+
+                <input type="text"   placeholder="Student Name" required id="name">
+
+            </div>
+            <div id = "inputbox">
+
+                <select name = "department" id="department">
+                
+                <option value="GE" selected>General (no department)</option>
+                <option value="AI">Artificial Intelligence</option>
+                <option value="IT">Information Technology</option>
+                <option value="IS">Information Systems</option>
+                <option value="CS">Computer Science</option>
+                <option value="DS">Decision Support</option>
+                </select>
+
+            </div>
+            <div class="submit">
+                <button type = "submit" id="ok">
+                    <span>Apply</span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <footer id="footer"></footer>
+</body>
+
+
+</html>
