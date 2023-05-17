@@ -1,14 +1,17 @@
+<!DOCTYPE html>
+{% load static %}
 <html>
   <head>
-  <meta charset="UTF-8">
-  <title>Student Affairs Website </title>
-  <meta name="description" content="This our Student Affairs website">
-        <link rel="stylesheet" href="static/css/mater.css">
-
-
+      <meta charset="UTF-8">
+      <title>Student Affairs Website </title>
+      <meta name="description" content="This our Student Affairs website">
+      <link rel="stylesheet" href="../static/css/mater.css">
+{#      <script defer src="../static/js/main.js"></script>#}
 </head>
 <header>
-  <div id="header"></div>
+  <div id="header">
+      {% include 'header.html' %}
+  </div>
 </header>
 <body>
 
@@ -22,6 +25,7 @@ STUDENTS AFFAIRS SYESTEM</h1>
 
 <footer>
   <dev id="footer">
+      {% include 'footer.html' %}
 
   </dev>
 

@@ -3,20 +3,22 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/show.css">
-    <link rel="stylesheet" href="../css/mater.css">
+    <link rel="stylesheet" href="../static/css/show.css">
+    <link rel="stylesheet" href="../static/css/mater.css">
     <title>Show all students</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-  
-    <script defer src="../js/main.js"></script>
-    <script defer src="../js/show.js"></script>
+      <script src="https://code.jquery.com/jquery-3.3.1.js"></script> <!-- Import Jquery Here-->
+
+      <script defer src="../static/js/show.js"></script>
    
     
 
 
   </head>
   <body>
-    <header id ="header"></header>
+    <div id="header">
+      {% include 'header.html' %}
+    </div>
       <h1 id="top-text">Show all Students</h1>
       <div class="back">
         <div id = "check-box">
@@ -60,6 +62,31 @@
             
         </thead>
         <tbody>
+        {% for student in students %}
+                <tr>
+                    <td class = "ID">{{student.stud_id}}</td>
+                    <td class = "Name">{{student.stud_name}}</td>
+                    <td class = "GPA">{{student.stud_gpa}}</td>
+                    <td class = "Level">{{student.level}}</td>
+                    <td class = "Department">{{student.department}}</td>
+                    <td class = "Date Of Birth">{{student.dateOfBirth}}</td>
+                    <td class="Gender">
+                        {% if student.gender == "M" %}
+                            Male
+                        {% else %}
+                            Female
+                        {% endif %}
+                    </td>
+                    <td class = "Status">active<label class="toggle">
+                    <input class="toggle-checkbox" type="checkbox" id ="status-toggle" {% if not student.status %} {% else %}checked {% endif %} onload="Changestatus({{ student.id }})">
+                    <div class="toggle-switch"></div>
+                    <span class="toggle-label"></span>
+                    </label></td>
+                   <td class = "Email">{{student.email}}</td>
+                   <td class = "Mobile Number">{{student.mobileNumber}}</td>
+                </tr>`
+
+        {% endfor %}
          
            
            
@@ -77,7 +104,9 @@
   
   </div>
 
-  <footer id ='footer'></footer>
+  <dev id="footer">
+      {% include 'footer.html' %}
+  </dev>
     </body>
         
 </html>
