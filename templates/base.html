@@ -1,0 +1,105 @@
+<!-- base.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>{% block title %}Affaires{% endblock %}</title>
+    <!-- Add your common CSS and JavaScript files here -->
+    {% block styles %} {% endblock %} {% block scripts %}
+    <script>
+      function myFunction() {
+        document.getElementById("myDropdown").classList.toggle("show");
+      }
+
+      // Close the dropdown menu if the user clicks outside of it
+      window.onclick = function (event) {
+        if (!event.target.matches(".dropbtn")) {
+          var dropdowns = document.getElementsByClassName("dropdown-content");
+          var i;
+          for (i = 0; i < dropdowns.length; i++) {
+            var openDropdown = dropdowns[i];
+            if (openDropdown.classList.contains("show")) {
+              openDropdown.classList.remove("show");
+            }
+          }
+        }
+      };
+    </script>
+    {% endblock %}
+  </head>
+  <body>
+    <header>
+      <!-- Add your header content here -->
+      <head>
+        {#
+        <script defer src="../static/js/main.js"></script>
+        #}
+      </head>
+      <div>
+        <ul>
+          <li style="float: left; padding: 10px" id="facultyName">
+            <label>F C A I</label>
+          </li>
+          <ul>
+            <li><a href="../about/">About</a></li>
+            <li><a href='{% static "base:login" %}'>Login</a></li>
+            <li><a href="../register">add</a></li>
+            <li>
+              <div class="dropdown">
+                <button onclick="myFunction()" class="dropbtn">Menu</button>
+                <div id="myDropdown" class="dropdown-content">
+                  <a href="../search">Search</a>
+                  <a href="../edit">Edit</a>
+                  <a href="../select">Select</a>
+                  <a href="../show/">Show</a>
+                </div>
+              </div>
+            </li>
+            <li><a href="../home">Home</a></li>
+          </ul>
+        </ul>
+      </div>
+    </header>
+
+    <main>
+      <!-- This is the content block that will be overridden in child templates -->
+      {% block content %}{% endblock %}
+    </main>
+
+    <footer>
+      <!-- Add your footer content here -->
+      <div class="footer-basic">
+        <footer>
+          <ul class="list-inline">
+            <li style="float: left">
+              <img
+                src="../static/logos/universityLogo.webp"
+                id="universityLogo"
+              />
+            </li>
+            <li style="float: left">
+              <img src="../static/logos/facultyLogo.webp" id="facultyLogo" />
+            </li>
+            <li class="list-inline-item"><a href="../home">Home</a></li>
+            <li class="list-inline-item">
+              <a href="../register">Add Student</a>
+            </li>
+            <li class="list-inline-item">
+              <a href="../show/">Show all students</a>
+            </li>
+            <li class="list-inline-item">
+              <a href="../search/">search/edit</a>
+            </li>
+            <li class="list-inline-item"><a href="../about">About</a></li>
+          </ul>
+          <p class="copyright">
+            Copyright © 2022-2023 Faculty of Computers and Artificial
+            Intelligence 5 Dr. Ahmed Zewail Street, Postal Code: 12613, Orman,
+            Giza, Egypt.
+          </p>
+        </footer>
+      </div>
+    </footer>
+  </body>
+</html>
