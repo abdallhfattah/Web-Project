@@ -1,19 +1,22 @@
+<!DOCTYPE html>
+{% load static %}
+
 <html>
   <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/searchUI.css">
-    <link rel="stylesheet" href="../css/mater.css">
+    <link rel="stylesheet" href="../static/css/searchUI.css">
+    <link rel="stylesheet" href="../static/css/mater.css">
     <title>Search for a Student Page</title>
-    <script defer src="../js/main.js"></script>
-    <script src="../js/search.js"></script>
+{#      <script defer src="../static/js/main.js"></script>#}
   </head>
   <header>
-    <div id="header"></div>  
+    <div id="header">
+      {% include 'header.html' %}
+    </div>
   </header>
   <body>
-    <header id ="header"></header>
       <h1 id="top-text">Search for Student</h1>
       <div class="back">
         <div class="search">
@@ -177,8 +180,10 @@
     
     </div>
   </div>
-  <footer id="footer"></footer>
     </body>
-      
+  <footer id="footer">
+    {% include 'footer.html'%}
+  </footer>
+
         
 </html>
