@@ -1,53 +1,64 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../css/mater.css" />
-    <link rel="stylesheet" href="../css/login.css">
-    <script defer src="../js/main.js"></script>
-    <script defer src="../js/login.js"></script>
+
+    <!-- ========== Style sheets ========== -->
+    <link rel="stylesheet" href="{% static 'css/mater.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/login.css' %}" />
+    <!-- ========== Java Script ========== -->
+    <script defer src="{% static 'js/login.js' %}"></script>
     <title>login page</title>
   </head>
-    <header>
-      <div id="header"></div>
-    </header>
+  
+  <!-- ========== Header ========== -->
+  <header>
+    <div id="header">{% include 'header.html' %}</div>
+  </header>
   <body>
     <div class="center">
       <h1>Login</h1>
-      <form method="post">
+
+      <form action="{% url 'base:login'%}" method="post">
+        <!-- TOKEN -->
+        {% csrf_token %}
         <!-- Form of Login Page -->
-        <div class="txt_field">
-          <input type="text" id ="id" required />
+        <div class="txt_field">   
+          <!-- ========== ID ========== -->
+          <input type="text" id="id" required />
           <span></span>
-                <label>ID </label>
-                <div class="error"></div>
-        </div>
-        <div class="txt_field">
-          <input type="password" id = "password" required />
-          <span></span>
-          <label>Password </label>
+          <label>username</label>
           <div class="error"></div>
         </div>
-        <div id = "forget">
-          <input type="checkbox" name="remember_me" />
-          <span>
-            remember me
-          </span>
-          <div class="pass">Forgot Password?</div> 
+
+        <!-- ========== password ========== -->
+        <div class="txt_field">
+          <input type="password" id="password" required />
+          <span></span>
+          <label>password</label>
+          <div class="error"></div>
         </div>
-          <input type="submit" value="Login" />
+
+        <!-- ========== forgot password & remeber me box ========== -->
+        <div id="forget">
+          <input type="checkbox" name="remember_me" />
+          <span> remember me </span>
+          <div class="pass">Forgot Password?</div>
+        </div>
+        <input type="submit" value="Login" />
+
+        <!-- ========== register ========== -->
         <div class="register">
-          Not registered ? <a href="register.html">register</a>
+          Not registered ? <a href=" % url {'base:register'} %">register</a>
         </div>
       </form>
       <br />
       <br />
     </div>
   </body>
-  <footer id="footer"></footer>	
+  <!-- ========== footer ========== -->
+  <footer id="footer">{% include 'footer.html' %}</footer>
 </html>
-
-<!--<label for="remeber">Remeber me</label>
--->
