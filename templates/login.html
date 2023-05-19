@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/mater.css" />
+    <link rel="stylesheet" href="../css/login.css">
+    <script defer src="../js/main.js"></script>
+    <script defer src="../js/login.js"></script>
+    <title>login page</title>
+  </head>
+    <header>
+      <div id="header"></div>
+    </header>
+  <body>
+    <div class="center">
+      <h1>Login</h1>
+      <form method="post">
+        <!-- Form of Login Page -->
+        <div class="txt_field">
+          <input type="text" id ="id" required />
+          <span></span>
+                <label>ID </label>
+                <div class="error"></div>
+        </div>
+        <div class="txt_field">
+          <input type="password" id = "password" required />
+          <span></span>
+          <label>Password </label>
+          <div class="error"></div>
+        </div>
+        <div id = "forget">
+          <input type="checkbox" name="remember_me" />
+          <span>
+            remember me
+          </span>
+          <div class="pass">Forgot Password?</div> 
+        </div>
+          <input type="submit" value="Login" />
+        <div class="register">
+          Not registered ? <a href="register.html">register</a>
+        </div>
+      </form>
+      <br />
+      <br />
+    </div>
+  </body>
+  <footer id="footer"></footer>	
+</html>
+
+<!--<label for="remeber">Remeber me</label>
+-->
