@@ -10,6 +10,6 @@ urlpatterns = [
     path('edit/', views.edit, name="edit"),
     path('search/', views.search, name="search"),
     path('select/', views.select, name="select"),
-    path('register/', views.register, name="add"),
+    path('add/', views.register, name="add"),
     path('user_login/', views.user_login, name="login"),
 ]
