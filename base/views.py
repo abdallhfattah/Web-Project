@@ -32,7 +32,7 @@ def select(request):
 
 # TODO: add each attribute regarding the
 def register(request):
-    return render(request, 'register.html')
+    return render(request, 'add.html')
 
 
 @login_required
