@@ -16,9 +16,9 @@ class student(models.Model):
     stud_gpa = models.DecimalField(max_digits=3, decimal_places=2)
     dateOfBirth = models.DateField()
     gender = models.CharField(max_length=7)
-    status = models.BooleanField(),
+    status = models.BooleanField()
     level = models.CharField(max_length=1)
-    email = models.CharField(max_length=255)
+    email = models.EmailField(max_length=255)
     mobileNumber = models.CharField(max_length=12)
     department = models.ForeignKey(Department, models.SET_NULL,null=True)
 

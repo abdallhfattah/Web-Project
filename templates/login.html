@@ -9,6 +9,7 @@
     <!-- ========== Style sheets ========== -->
     <link rel="stylesheet" href="{% static 'css/mater.css' %}" />
     <link rel="stylesheet" href="{% static 'css/login.css' %}" />
+
     <!-- ========== Java Script ========== -->
     <script defer src="{% static 'js/login.js' %}"></script>
     <title>login page</title>
@@ -22,13 +23,13 @@
     <div class="center">
       <h1>Login</h1>
 
-      <form action="{% url 'base:login'%}" method="post">
+      <form action="" method="post">
         <!-- TOKEN -->
         {% csrf_token %}
         <!-- Form of Login Page -->
         <div class="txt_field">   
           <!-- ========== ID ========== -->
-          <input type="text" id="id" required />
+          <input type="text" id="id" name = "username" required />
           <span></span>
           <label>username</label>
           <div class="error"></div>
@@ -36,7 +37,7 @@
 
         <!-- ========== password ========== -->
         <div class="txt_field">
-          <input type="password" id="password" required />
+          <input type="password" id="password" name = "password" required />
           <span></span>
           <label>password</label>
           <div class="error"></div>
@@ -48,13 +49,15 @@
           <span> remember me </span>
           <div class="pass">Forgot Password?</div>
         </div>
-          <!-- ========== register ========== -->
+
+          <!-- ========== Login button ========== -->
         <div class="register">
           <input type="submit" value="Login" />
         </div>
       </form>
     </div>
   </body>
+
   <!-- ========== footer ========== -->
   <footer id="footer">{% include 'footer.html' %}</footer>
 </html>

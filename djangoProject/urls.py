@@ -21,8 +21,10 @@ from django.urls import path, include
 from base import views
 
 urlpatterns = [
+    path('',  views.index , name = 'index'),
+    path('base/', include('base.urls')),
     path('admin/', admin.site.urls),
-    path('', include('base.urls')),
-    # trying it
-    path('login/' , views.user_login),
+    # path('login/', views.user_login, name='login'),
+    # path('logout/', views.user_logout, name='logout'),
 ]
+
