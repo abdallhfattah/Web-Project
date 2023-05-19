@@ -1,7 +1,5 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-
-    
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.hashers import make_password
 from django.urls import reverse
@@ -13,29 +11,20 @@ from django.views.decorators.csrf import csrf_protect
 def home(requst):
     return render(requst, 'home.html')
 
-
 def index(request):
     return render(request, 'index.html')
 
 def search(request):
     return render(request, 'search.html')
 
-
-def search(request):
-    return render(request, 'search.html')
-
-
 def about(request):
     return render(request, 'about.html')
-
 
 def show(request):
     return render(request, 'show.html')
 
-
 def edit(request):
     return render(request, 'edit.html')
-
 
 def select(request):
     return render(request, 'select.html')
