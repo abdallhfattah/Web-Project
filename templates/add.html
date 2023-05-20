@@ -13,8 +13,8 @@
     <!----===== Iconscout CSS ===== -->
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
 	<!----======== SCRIPT ======== -->
-    <script defer src="{% static  'js/main.js' %}"></script>
 	<script type="module"  defer src="{% static 'js/validation.js' %}"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <title>Regisration Form</title> 
 </head>
 <header>
@@ -25,9 +25,11 @@
 <body>
     <div class="container">
         <header>Add Student</header>
-        <form id="form" action="" method="post">
+        <!-- method="post #TODO: check if u need to added back -->
+        <form id="form" action="" method="post" >
             {% csrf_token %}
-            <!-- =========== General =========== -->
+
+            <!-- =========== Personal Details =========== -->
             <div class="form-first">
                 <div class="details personal">
                     <span class="title">Personal Details</span>
@@ -35,7 +37,7 @@
                     <div class="fields">
                         <div class="input-field">
                             <label>Full Name</label>
-                            <input type="text" id ="name" name="stud_name" placeholder="Enter your name" required>
+                            <input type="text" id="name" name="stud_name" placeholder="Enter your name" required>
                             <div class="error"></div>
                         </div>
 
@@ -49,7 +51,7 @@
                     <!-- =========== Email =========== -->
                         <div class="input-field">
                             <label>Email</label>
-                            <input type="text" id ="email" name="email" placeholder="Enter your email" required>
+                            <input type="text" id="email" name="email" placeholder="Enter your email" required>
                             <div class="error"></div>
                         </div>
 
@@ -90,7 +92,7 @@
                     <!-- =========== ID =========== -->
                             <div class="input-field">
                                 <label>ID </label>
-                                <input id = "id" type="text" placeholder="Enter ID type" name="stud_id" required>
+                                <input id="id" type="text" placeholder="Enter ID type" name="stud_id" required>
                                 <div class="error"></div>
                             </div>
 
@@ -144,16 +146,46 @@
                         </div>
                     <!-- =========== submit =========== -->
                         <div class = "add-button">
-                        <button type="submit"  class="btnText" onclick="submit()" >
+                        <button type="submit"  class="btnText">
                             Add
                         </button>
                         <div class="error"></div>
+                        <h4></h4>
                         </div>
                     </div>
                 </div>
             </form>
         </div>	
     </body>
+    <!-- <script tpye="text/javascript">
+    $(document).on('submit' , "#post" ,function (e) {
+        e.preventDefault();
+        console.log("i have added a student bruh");
+        $.ajax({
+            type: 'POST',
+            url: '/add',
+            data: {
+                name : $('#name').val(),
+                data : $('#date').val(),
+                email:$('#email').val(),
+                phone:$('#phone').val(),
+                status:$('#status').val(),
+                gender:$('#gender').val(),
+                id   :$('#id').val(),
+                department :$('#department').val(),
+                gpa : $('#gpa').val(),
+                level :$('#level').val(),
+                password: $('#pass').val(),
+                confirm :$('#confirm').val(),
+                csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val()
+            },
+            success : function(data){
+                $('h4').html(data)
+            }
+        })
+    })  
+// Student added Successfully
+    </script> -->
 <footer id="footer">
     {% include 'footer.html' %}
 </foote>	

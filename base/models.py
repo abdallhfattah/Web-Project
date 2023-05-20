@@ -10,7 +10,7 @@ class Department(models.Model):
         return self.name
 
 
-class student(models.Model):
+class Student(models.Model):
     stud_id = models.IntegerField(unique=True)
     stud_name = models.CharField(max_length=255)
     stud_gpa = models.DecimalField(max_digits=3, decimal_places=2)
@@ -28,8 +28,6 @@ class student(models.Model):
 
     def __repr__(self):
         return self.stud_name
-
-
 
 class UserAdmin(models.Model):
     
