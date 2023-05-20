@@ -124,6 +124,13 @@ def add(request):
 
     return render(request, 'add.html')
 
+def getallstudents(request):
+    Students = Student.objects.all()
+    gender = "Male"
+    ischecked = "checked"
+    return render(request,'search.html',{'students':Students , 'gender': gender , 'ischecked':ischecked})
+
+
 # @csrf_protect
 # @login_required 
 # def add(request):

@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="{% static 'css/searchUI.css' %}">
     <link rel="stylesheet" href="{% static 'css/mater.css'%}">
     <title>Search for a Student Page</title>
-     <script defer src="{% static 'js/search.js' %}"></script>#}
+     <script defer src="{% static 'js/search.js' %}"></script>
   </head>
   <header>
     <div id="header">
@@ -34,7 +34,6 @@
             <th class="Department">Department</th>
             <th class="Date Of Birth">Date Of Birth</th>
             <th class="Gender">Gender</th>
-            <th class="Status">Status</th>
             <th class="Email">Email</th>
             <th class="Mobile Number">Mobile Number</th> 
             
@@ -42,127 +41,28 @@
 
         <tbody>
          
-            <tr>
-                <td>20210052</td>
-                <td>Adham Adel Mohammed</td>
-                <td>3.3</td>
-                <td>2</td>
-                <td>General</td>
-                <td>2002/10/29</td>
-                <td>Male</td>
-                <td>Active</td>
-                <td>adhamadelmoh@gmail.com</td>
-                <td>01159698654</td>
-              </tr>
-              <tr>
-                <td>20210169</td>
-                <td>seif eldin mahmoud helmy</td>
-                <td>3.7</td>
-                <td>2</td>
-                <td>General</td>
-                <td>2003/9/17</td>
-                <td>Male</td>
-                <td>Active</td>
-                <td>seifhelmy777@gmail.com</td>
-                <td>01123646434</td>
-              </tr>
-              <tr>
-                <td>20210169</td>
-                <td>seif eldin mahmoud helmy</td>
-                <td>3.7</td>
-                <td>2</td>
-                <td>General</td>
-                <td>2003/9/17</td>
-                <td>Male</td>
-                <td>Active</td>
-                <td>seifhelmy777@gmail.com</td>
-                <td>01123646434</td>
-              </tr>
-              <tr>
-                <td>20210169</td>
-                <td>seif eldin mahmoud helmy</td>
-                <td>3.7</td>
-                <td>2</td>
-                <td>General</td>
-                <td>2003/9/17</td>
-                <td>Male</td>
-                <td>Active</td>
-                <td>seifhelmy777@gmail.com</td>
-                <td>01123646434</td>
-              </tr>
-              <tr>
-                <td>20210169</td>
-                <td>seif eldin mahmoud helmy</td>
-                <td>3.7</td>
-                <td>2</td>
-                <td>General</td>
-                <td>2003/9/17</td>
-                <td>Male</td>
-                <td>Active</td>
-                <td>seifhelmy777@gmail.com</td>
-                <td>01123646434</td>
-              </tr>
-              <tr>
-                <td>20210169</td>
-                <td>seif eldin mahmoud helmy</td>
-                <td>3.7</td>
-                <td>2</td>
-                <td>General</td>
-                <td>2003/9/17</td>
-                <td>Male</td>
-                <td>Active</td>
-                <td>seifhelmy777@gmail.com</td>
-                <td>01123646434</td>
-              </tr>
-              <tr>
-                <td>20210169</td>
-                <td>seif eldin mahmoud helmy</td>
-                <td>3.7</td>
-                <td>2</td>
-                <td>General</td>
-                <td>2003/9/17</td>
-                <td>Male</td>
-                <td>Active</td>
-                <td>seifhelmy777@gmail.com</td>
-                <td>01123646434</td>
-              </tr>
-              <tr>
-                <td>20210169</td>
-                <td>seif eldin mahmoud helmy</td>
-                <td>3.7</td>
-                <td>2</td>
-                <td>General</td>
-                <td>2003/9/17</td>
-                <td>Male</td>
-                <td>Active</td>
-                <td>seifhelmy777@gmail.com</td>
-                <td>01123646434</td>
-              </tr>
-              <tr>
-                <td>20210169</td>
-                <td>seif eldin mahmoud helmy</td>
-                <td>3.7</td>
-                <td>2</td>
-                <td>General</td>
-                <td>2003/9/17</td>
-                <td>Male</td>
-                <td>Active</td>
-                <td>seifhelmy777@gmail.com</td>
-                <td>01123646434</td>
-              </tr>
-              <tr>
-                <td>20210169</td>
-                <td>seif eldin mahmoud helmy</td>
-                <td>3.7</td>
-                <td>2</td>
-                <td>General</td>
-                <td>2003/9/17</td>
-                <td>Male</td>
-                <td>Active</td>
-                <td>seifhelmy777@gmail.com</td>
-                <td>01123646434</td>
-              </tr>
-              
+             {% for student in students %}
+             {% if student.status%}
+                <tr>
+
+                    <td class = "ID">{{student.stud_id}}</td>
+                    <td class = "Name">{{student.stud_name}}</td>
+                    <td class = "GPA">{{student.stud_gpa}}</td>
+                    <td class = "Level">{{student.level}}</td>
+                    <td class = "Department">{{student.department}}</td>
+                    <td class = "Date Of Birth">{{student.dateOfBirth}}</td>
+                    <td class="Gender">
+                        {% if student.gender == "M" %}
+                            Male
+                        {% else %}
+                            Female
+                        {% endif %}
+                    </td>
+                   <td class = "Email">{{student.email}}</td>
+                   <td class = "Mobile Number">{{student.mobileNumber}}</td>
+                </tr>
+            {% endif %}
+        {% endfor %}
            
         </tbody>
 
@@ -184,6 +84,4 @@
   <footer id="footer">
     {% include 'footer.html'%}
   </footer>
-
-        
 </html>
