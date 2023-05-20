@@ -33,19 +33,20 @@ th,td{
 
 border: 1px solid #ddd;
     padding: 20px;
-    height: 50px;
+    height: 35px;
     border-radius: 10px;
-} 
+    font-size: large;
+}
 
 tr:hover{
 
     background-color: #bdcec6;
-    animation: mymove 5s infinite;
+    animation: mymove 2s forwards;
     
 }
 @keyframes mymove {
-    from {background-color: #b0f0d8;}
-    to {background-color: #62c09d;}
+    from {background-color: #c5c5c5;}
+    to {background-color: #4cdaaf;}
 }
 
 th {
@@ -74,7 +75,12 @@ th {
     width: 25%;
     background: #e3e3e3;
     border-radius: 15px;
+      -webkit-transition: width 0.4s ease-in-out;
+  transition: width 0.4s ease-in-out;
 
+  }
+  input[type=text]:focus{
+      width: 40%;
   }
 
 .buttons{

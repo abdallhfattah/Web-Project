@@ -131,12 +131,14 @@ form .fields .input-field{
     color: #333;
 }
 
-/* Success */
+
+/* ================== Validations ==================  */
+/* ---- Success ---- */
 .input-field.success input {
     border-color: #09c372;
 }
 
-/* Error */
+/* ---- Error ---- */
 .input-field.x input {
     border-color: #ff3860;
 }
