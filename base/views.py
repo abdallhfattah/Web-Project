@@ -1,4 +1,5 @@
-from django.shortcuts import render
+from django.shortcuts import render , redirect
+from base.models import student
 from django.http import HttpResponse
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.hashers import make_password
@@ -29,16 +30,45 @@ def edit(request):
 def select(request):
     return render(request, 'select.html')
 
+@login_required
+def add(request):
+    if request.method == 'POST':
+        # Retrieve form data
+        stud_id = request.POST['stud_id']
+        stud_name = request.POST['stud_name']
+        stud_gpa = request.POST['stud_gpa']
+        date_of_birth = request.POST['date_of_birth']
+        gender = request.POST['gender']
+        status = request.POST['status']
+        level = request.POST['level']
+        email = request.POST['email']
+        mobile_number = request.POST['mobile_number']
+        department = request.POST['department']
 
-# TODO: add each attribute regarding the
-def register(request):
+        # Create a new instance of the student model
+        new_student = student(
+            stud_id=stud_id,
+            stud_name=stud_name,
+            stud_gpa=stud_gpa,
+            dateOfBirth=date_of_birth,
+            gender=gender,
+            status=status,
+            level=level,
+            email=email,
+            mobileNumber=mobile_number,
+            department=department
+        )
+        new_student.save()
+
+        return redirect('add')
+
     return render(request, 'add.html')
-
 
 @login_required
 def user_logout(request):
     logout(request)
     return HttpResponseRedirect(reverse('index'))
+
 
 
 @csrf_protect
