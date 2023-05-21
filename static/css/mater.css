@@ -1,17 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600&display=swap');
 .content h1{
   color: white;
   font-size: #363538 30px;
   text-shadow: 0 0 3px #000000;
   /*font-family: Helvetica;*/
   text-shadow: 20px;  
-  text-align: center; 
+  text-align: center;
 
 }
 .content h2{
   color: white;
   font-size: #363538 30px;
   text-shadow: 0 0 3px #0b0404;
-  text-shadow: 20px;  
+  text-shadow: 20px;
   text-align: center;
 }
 .content{
@@ -22,6 +23,7 @@ background-image: linear-gradient(315deg, #aff6cf 0%, #9f98e8 74%);
 *{
 padding: 0;
 margin: 0;
+     font-family: 'Poppins', sans-serif;
 
 }
 li {

@@ -74,7 +74,7 @@ th {
     float: center;
     width: 25%;
     background: #e3e3e3;
-    border-radius: 15px;
+    border-radius: 18px;
       -webkit-transition: width 0.4s ease-in-out;
   transition: width 0.4s ease-in-out;
 
@@ -84,16 +84,18 @@ th {
   }
 
 .buttons{
-    padding: 20px 0 0 0;
+    padding: 80px 0 0 0;
 }
 
 button{
-    padding: 10px 24px;
-    border:1px solid #5dd58b;
+    padding: 10px 22px;
+    border:2px solid #5dd58b;
     float: center;
-    width: 12%;
+    width: 15%;
     background: #5dd58b;
-    border-radius: 15px;
+     border-radius: 25px;
+    font-size: 18px;
+    font-weight: 500;
    color: white;
    transition-duration: 0.4s;
 }
