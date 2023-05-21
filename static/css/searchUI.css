@@ -35,7 +35,7 @@ border: 1px solid #ddd;
     padding: 20px;
     height: 35px;
     border-radius: 10px;
-    font-size: large;
+    font-size: medium;
 }
 
 tr:hover{
@@ -88,13 +88,13 @@ th {
 }
 
 button{
-    padding: 10px 22px;
+    padding: 10px 20px;
     border:2px solid #5dd58b;
     float: center;
-    width: 15%;
+    width: 12%;
     background: #5dd58b;
      border-radius: 25px;
-    font-size: 18px;
+    font-size: 15px;
     font-weight: 500;
    color: white;
    transition-duration: 0.4s;
