@@ -9,7 +9,7 @@ from django.urls import reverse
 from django.contrib import messages
 from django.http import HttpResponseRedirect, HttpResponse
 from django.contrib.auth.decorators import login_required
-from django.views.decorators.csrf import csrf_protect
+from django.views.decorators.csrf import csrf_protect ,csrf_exempt
 from django.http import JsonResponse
 from django.views.decorators.http import require_POST
 from django.shortcuts import get_object_or_404
@@ -43,25 +43,6 @@ def select(request):
     return render(request, 'select.html')
 
 
-@require_POST
-def check_exists(request):
-    field = request.POST.get('field')
-    value = request.POST.get('value')
-
-    # Check the specified field for existence in the Student model
-    if field == 'id':
-        exists = Student.objects.filter(stud_id=value).exists()
-    elif field == 'email':
-        exists = Student.objects.filter(email=value).exists()
-    elif field == 'phone':
-        exists = Student.objects.filter(mobileNumber=value).exists()
-    else:
-        # Invalid field name provided
-        return JsonResponse({'exists': False, 'error': 'Invalid field name'})
-
-    # Return the response as JSON
-    return JsonResponse({'exists': exists})
-
 
 @login_required
 def add(request):
@@ -82,10 +63,6 @@ def add(request):
         if status == "act":
             student_status = True
         
-
-        # print(email + "\n " + stud_id+ "\n " + mobile_number+ "\n " + name+ "\n " + 
-        #       stud_gpa+ "\n " + date_of_birth+ "\n " + stud_gender+"\n "+ 
-        #       status+"\n " + stud_level+ "\n " + department_name)
         # Get the Department instance based on the selected department name
         
         stud_department = Department.objects.get(name=department_name)
@@ -131,64 +108,6 @@ def getallstudents(request):
     return render(request,'search.html',{'students':Students , 'gender': gender , 'ischecked':ischecked})
 
 
-# @csrf_protect
-# @login_required 
-# def add(request):
-
-#     if request.method == 'POST':
-#         id_value = request.POST.get('stud_id')
-#         email_value = request.POST.get('email')
-#         phone_value = request.POST.get('mobile_number')
-
-#         stud_name = request.POST.get('stud_nam')
-#         stud_gpa = request.POST.get('stud_gpa')
-#         date_of_birth = request.POST.get('date_of_birth')
-#         gender = request.POST.get('gender')
-#         status = request.POST.get('status')
-#         level = request.POST.get('level')
-#         department = request.POST.get('department')
-#         # print(department_name)
-#         # Get the Department instance based on the selected department name
-#         # department = Department.objects.get(name=department_name)
-#         print("\n\n\n\n\n" + department + "\n\n\n\n")
-#         # Check if ID, email, and phone number already exist in the database
-#         if student.objects.filter(stud_id=id_value).exists():
-#             # ID already exists
-#             messages.error(request, 'This ID already exists.')
-
-#         elif student.objects.filter(email=email_value).exists():
-#             # Email already exists
-#             messages.error(request, 'This email already exists.')
-
-#         elif student.objects.filter(mobileNumber=phone_value).exists():
-#             # Phone number already exists
-#             messages.error(request, 'This phone number already exists.')
-
-#         else:
-#             act_value = request.POST.get('act', False)
-#             # All fields are unique, save the student record
-#             new_student = student(
-#                 stud_id=id_value,
-#                 email=email_value,
-#                 mobileNumber=phone_value,
-#                 stud_name=stud_name,
-#                 stud_gpa=stud_gpa,
-#                 dateOfBirth=date_of_birth,
-#                 gender=gender,
-#                 status=status,
-#                 level=level,
-#                 department=department,
-#                 act =act_value,
-#             )
-#             new_student.save()
-#             print('added {} into the data base' .format(id_value))
-#             # Show success message
-#             messages.success(request, 'Student added successfully.')
-#             return redirect('add')
-
-#     return render(request, 'add.html')
-
-
 @login_required
 def user_logout(request):
     logout(request)
@@ -218,3 +137,35 @@ def user_login(request):
             return HttpResponse("invalid login details")
 
     return render(request, 'login.html')
+
+
+
+
+@csrf_exempt
+def check_existing(request):
+    if request.method == 'POST':
+        stud_id = request.POST.get('stud_id')
+        mobile_number = request.POST.get('mobile_number')
+        email = request.POST.get('email')
+        data = {}
+
+        # Check if the ID exists
+        if Student.objects.filter(stud_id=stud_id).exists():
+            data['id_exists'] = True
+        else:
+            data['id_exists'] = False
+
+        # Check if the email exists
+        if Student.objects.filter(email=email).exists():
+            data['email_exists'] = True
+        else:
+            data['email_exists'] = False
+
+        # Check if phone number exists
+        if Student.objects.filter(mobileNumber=mobile_number).exists():
+            data['phone_exists'] = True
+        else:
+            data['phone_exists'] = False
+
+        # print(JsonResponse(data))
+        return JsonResponse(data)
