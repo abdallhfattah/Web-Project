@@ -25,10 +25,9 @@
 <body>
     <div class="container">
         <header>Add Student</header>
-        <!-- method="post #TODO: check if u need to added back -->
-        <form id="form" action="" method="post" >
-            {% csrf_token %}
 
+        <form id="form" action="/base/check_existing/" method="POST" >
+            {% csrf_token %}
             <!-- =========== Personal Details =========== -->
             <div class="form-first">
                 <div class="details personal">
@@ -69,8 +68,8 @@
                                 <option disabled selected>Select status</option>
                                 <option value ="act">Active</option>
                                 <option value ="inact">Inactive</option>
-                                <div class="error"></div>
                             </select>
+                            <div class="error"></div>
                         </div>
                     <!-- =========== Gender =========== -->
                         <div class="input-field">
@@ -79,19 +78,18 @@
                                 <option disabled selected >Select gender</option>
                                 <option value = "Male">Male</option>
                                 <option value = "Female">Female</option>
-                                <div class="error"></div>
                             </select>
+                            <div class="error"></div>
                         </div>	
                     </div>
                 </div>
-
                     <!-- =========== Faculty Details =========== -->
                     <div class="details ID">
                         <span class="title">Faculty Details</span>
                         <div class="fields">
                     <!-- =========== ID =========== -->
                             <div class="input-field">
-                                <label>ID </label>
+                                <label>ID</label>
                                 <input id="id" type="text" placeholder="Enter ID type" name="stud_id" required>
                                 <div class="error"></div>
                             </div>
@@ -100,7 +98,7 @@
                             <div class="input-field">
                                 <label>Department</label>
                                 <select required id="department" name="department">
-                                    <option disabled selected>Select Department</option>
+                                    <option disabled selected vlaue="">Select Department</option>
                                     <option value = "None">Not Yet</option>
                                     <option value = "IS">Information Systems</option>
                                     <option value = "CS">Computer Science</option>
@@ -150,44 +148,14 @@
                         <button type="submit"  class="btnText">
                             Add
                         </button>
-                        <div class="error"></div>
-                        <h4></h4>
                         </div>
                     </div>
                 </div>
             </form>
         </div>	
     </body>
-    <!-- <script tpye="text/javascript">
-    $(document).on('submit' , "#post" ,function (e) {
-        e.preventDefault();
-        console.log("i have added a student bruh");
-        $.ajax({
-            type: 'POST',
-            url: '/add',
-            data: {
-                name : $('#name').val(),
-                data : $('#date').val(),
-                email:$('#email').val(),
-                phone:$('#phone').val(),
-                status:$('#status').val(),
-                gender:$('#gender').val(),
-                id   :$('#id').val(),
-                department :$('#department').val(),
-                gpa : $('#gpa').val(),
-                level :$('#level').val(),
-                password: $('#pass').val(),
-                confirm :$('#confirm').val(),
-                csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val()
-            },
-            success : function(data){
-                $('h4').html(data)
-            }
-        })
-    })  
-// Student added Successfully
-    </script> -->
 <footer id="footer">
     {% include 'footer.html' %}
 </foote>	
 </html>
+
