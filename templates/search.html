@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="{% static 'css/mater.css'%}">
     <title>Search for a Student Page</title>
      <script defer src="{% static 'js/search.js' %}"></script>
+      <script defer src="{% static 'js/SearchResult.js' %}"></script>
+
   </head>
   <header>
     <div id="header">
@@ -35,16 +37,15 @@
             <th class="Date Of Birth">Date Of Birth</th>
             <th class="Gender">Gender</th>
             <th class="Email">Email</th>
-            <th class="Mobile Number">Mobile Number</th> 
-            
+            <th class="Mobile Number">Mobile Number</th>
+
         </thead>
 
         <tbody>
-         
+
              {% for student in students %}
              {% if student.status%}
-                <tr>
-
+                <tr class="active-row">
                     <td class = "ID">{{student.stud_id}}</td>
                     <td class = "Name">{{student.stud_name}}</td>
                     <td class = "GPA">{{student.stud_gpa}}</td>
@@ -52,7 +53,7 @@
                     <td class = "Department">{{student.department}}</td>
                     <td class = "Date Of Birth">{{student.dateOfBirth}}</td>
                     <td class="Gender">
-                        {% if student.gender == "Male" %}
+                        {% if student.gender == "M" %}
                             Male
                         {% else %}
                             Female
@@ -63,7 +64,7 @@
                 </tr>
             {% endif %}
         {% endfor %}
-           
+
         </tbody>
 
 
@@ -71,17 +72,22 @@
     </table>
   </div>
     <div class ="buttons">
-    
+
       <a href="edit.html">
         <button class="buttonedit">
           EDIT/DELETE
         </button>
       </a>
-    
+
+        <button class="buttonedit" onclick="selectDepartment()">
+          Select Department
+        </button>
+
     </div>
   </div>
     </body>
   <footer id="footer">
     {% include 'footer.html'%}
   </footer>
+
 </html>

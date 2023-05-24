@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -6,39 +7,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <!--css for phass two -->
-<link rel="stylesheet" href="../css/select.css" />
-<link rel="stylesheet" href="../css/mater.css">
-<script defer src="../js/main.js"></script>
-<script defer src="../js/select.js"></script>
-</head>    
+    <link rel="stylesheet" href="{% static 'css/select.css' %}">
+    <link rel="stylesheet" href="{% static 'css/mater.css' %}">
+<script defer src="{% static 'js/select.js' %}"></script>
+</head>
 
 
 <body>
-    <header id="header"></header>
+    <div id="header">
+      {% include 'header.html' %}
+    </div>
     <div class="header">
         <h2>
         <p>Select Department</p>
         </h2>
     </div>
+    <form id="form" METHOD="POST">
+    {% csrf_token %}
     <div class="container">
     
         <div class="select">    
             <div id = "inputbox">
             
-                <input type="number"  min="1" placeholder="Student ID" required id="id">
-
+                <input type="number"  min="1" placeholder="Student ID" required id="id" value="{{ student.stud_id }}">
 
             </div>
             <div id = "inputbox">
 
-                <input type="text"   placeholder="Student Name" required id="name">
+                <input type="text"   placeholder="Student Name" required id="name" name="name" value="{{ student.stud_name }}">
 
             </div>
             <div id = "inputbox">
 
                 <select name = "department" id="department">
-                
-                <option value="GE" selected>General (no department)</option>
+                <option value="GE" disabled selected>General (no department)</option>
                 <option value="AI">Artificial Intelligence</option>
                 <option value="IT">Information Technology</option>
                 <option value="IS">Information Systems</option>
@@ -53,9 +55,19 @@
                 </button>
             </div>
         </div>
-    </div>
-    <footer id="footer"></footer>
+        </div>
+    </form>
+    <dev id="footer">
+      {% include 'footer.html' %}
+  </dev>
 </body>
+<script>
+    document.getElementById('form').addEventListener('submit', function() {
+    let x = document.getElementById("department");
+    let y = document.getElementById("id");
+    let z = document.getElementById("name");
+    console.log(x,y,z);});
+</script>
 
 
 </html>
