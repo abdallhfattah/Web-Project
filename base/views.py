@@ -43,46 +43,33 @@ def select(request):
     return render(request, 'select.html')
 
 
-
 @login_required
+@csrf_exempt
 def add(request):
     if request.method == 'POST':
         # Retrieve form data
-        email = request.POST[ 'email']
-        stud_id = request.POST['stud_id']
-        mobile_number = request.POST['mobile_number']
-        name = request.POST['stud_name']
-        stud_gpa = request.POST['stud_gpa']
-        date_of_birth = request.POST['date_of_birth']
-        stud_gender = request.POST['gender']
-        status = request.POST['status']
-        stud_level = request.POST['level']
-        department_name = request.POST['department']
+        name = request.POST.get('stud_name')
+        stud_gpa = request.POST.get('stud_gpa')
+        email = request.POST.get('email')
+        stud_id = request.POST.get('stud_id')
+        mobile_number = request.POST.get('mobile_number')
+        date_of_birth = request.POST.get('date_of_birth')
+        stud_gender = request.POST.get('gender')
+        status = request.POST.get('status')
+        stud_level = request.POST.get('level')
+        department_name = request.POST.get('department')
 
+        print(department_name, "hello world")
+        # checking whether student is active
         student_status = False
         if status == "act":
             student_status = True
-        
-        # Get the Department instance based on the selected department name
-        
+
+        # Get the Department instance based on the selected department name since its forigen key
         stud_department = Department.objects.get(name=department_name)
 
-        if Student.objects.filter(stud_id=stud_id).exists():
-            # ID already exists
-            messages.error(request, 'This ID already exists.')
-
-        elif Student.objects.filter(email=email).exists():
-            # Email already exists
-            messages.error(request, 'This email already exists.')
-
-        elif Student.objects.filter(mobileNumber= mobile_number).exists():
-            # Phone number already exists
-            messages.error(request, 'This phone number already exists.')
-
-        else:
-            # Create a new instance of the Student model
-            print("i have added Student {} ".format(name))
-            new_student = Student(
+        # Create a new instance of the Student model
+        new_student = Student(
             stud_id=stud_id,
             email=email,
             mobileNumber=mobile_number,
@@ -95,11 +82,9 @@ def add(request):
             department=stud_department
         )
         new_student.save()
-        success = 'Student added Successfully ID : {} '.format(stud_id)
-
-        return HttpResponse(success)
 
     return render(request, 'add.html')
+
 
 def getallstudents(request):
     Students = Student.objects.all()
