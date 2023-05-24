@@ -7,8 +7,14 @@ urlpatterns = [
     path('home/', views.home, name="home"),
     path('show/', views.show, name='show'),
     path('about/', views.about, name="about"),
+<<<<<<< Updated upstream
     path('edit/', views.edit, name="edit"),
     path('check_existing/', views.check_existing, name="check_existing"),
+=======
+    path('edit/<str:pk>/', views.edit, name="edit"),
+    path('delete/<str:pk>/', views.delete, name='delete'),
+    path('search/', views.getallstudents, name="search"),
+>>>>>>> Stashed changes
     path('select/', views.select, name="select"),
     path('search/', views.getallstudents, name="search"),
     path('add/', views.add, name="add"),
