@@ -178,3 +178,40 @@ def check_existing(request):
             
         # print(JsonResponse(data))
         return JsonResponse(data)
+   
+
+
+
+
+
+
+@login_required
+def edit(request, pk):
+
+    if request.method == "GET":
+         data = Student.objects.get(stud_id=pk)
+         date = str(data.dateOfBirth)
+         department = str(data.department)
+         return render(request, "edit.html", {"data": data, "date": date, "dep": department})
+
+    if request.method == "POST":
+        data = Student.objects.get(stud_id = pk)
+        data.stud_name = request.POST.get("name")
+        data.stud_id = request.POST.get("stud_id")
+        data.stud_gpa = request.POST.get("gpa")
+        data.level = request.POST.get("level")
+        data.dateOfBirth = request.POST.get("date")
+        data.gender = request.POST.get("gender")
+        data.email = request.POST.get("email")
+        data.mobileNumber = request.POST.get("mobile-number")
+        data.save()
+        return render(request, 'home.html')
+
+@csrf_exempt
+def delete(request,pk):
+    data = Student.objects.get(stud_id=pk)
+    if request.method == 'POST':
+        data.delete()
+        return render(request, "home.html")
+    return render(request, "delete.html")
+
