@@ -39,9 +39,14 @@ def edit(request):
     return render(request, 'edit.html')
 
 
-def select(request):
-    return render(request, 'select.html')
+def select(req, id):
+    return render(req, "search.html")
 
+def deactivate(request,id):
+    student = Student.objects.get(stud_id=id)
+    student.status ^= True
+    student.save()
+    return HttpResponse("Status changed successfully!")
 
 @login_required
 @csrf_exempt
@@ -87,7 +92,13 @@ def add(request):
 
 
 def getallstudents(request):
-    Students = Student.objects.all()
+    Students = student.objects.all()
+    gender = "Male"
+    ischecked = "checked"
+    return render(request,'show.html',{'students':Students , 'gender': gender , 'ischecked':ischecked})
+
+def getallstudents2(request):
+    Students = student.objects.all()
     gender = "Male"
     ischecked = "checked"
     return render(request,'search.html',{'students':Students , 'gender': gender , 'ischecked':ischecked})
@@ -123,6 +134,21 @@ def user_login(request):
 
     return render(request, 'login.html')
 
+def page_not_found(request, exception):
+    return render(request, 'ErrorPage.html', status=404)
+
+def select(request,id):
+    student = Student.objects.get(stud_id=id)
+    if request.method == 'GET':
+        return render(request, 'select.html',{'student':student})
+    student.department = Department.objects.get(name=request.POST.get("department"))
+    student.save()
+    return redirect("base:search")
+
+
+
+
+
 
 
 
@@ -151,6 +177,6 @@ def check_existing(request):
             data['phone_exists'] = True
         else:
             data['phone_exists'] = False
-
+            
         # print(JsonResponse(data))
         return JsonResponse(data)
