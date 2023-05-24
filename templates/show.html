@@ -1,17 +1,17 @@
 <html>
+{% load static %}
+
   <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../static/css/show.css">
-    <link rel="stylesheet" href="../static/css/mater.css">
+    <link rel="stylesheet" href="{% static 'css/show.css' %}">
+    <link rel="stylesheet" href="{% static 'css/mater.css' %}">
     <title>Show all students</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
       <script src="https://code.jquery.com/jquery-3.3.1.js"></script> <!-- Import Jquery Here-->
 
-      <script defer src="../static/js/show.js"></script>
-   
-    
+    <script defer src="{% static 'js/show.js' %}"></script>
 
 
   </head>
@@ -20,29 +20,115 @@
       {% include 'header.html' %}
     </div>
       <h1 id="top-text">Show all Students</h1>
+
       <div class="back">
+          <h4>Filter students by </h4>
         <div id = "check-box">
-          <h4>Filter students by: </h4>
+            <label class="flipBox" aria-label="Checkbox 1">
           <input type="checkbox" id="ID" name="ID" checked>
           <label>ID</label>
+    <div class="flipBox_boxOuter">
+      <div class="flipBox_box">
+        <div></div><div></div><div></div><div></div><div></div><div></div>
+      </div>
+    </div>
+    <div class="flipBox_shadow"></div>
+  </label>
+          <label class="flipBox" aria-label="Checkbox 1">
           <input type="checkbox" id="Name" name="Name" checked>
           <label>Name</label>
+    <div class="flipBox_boxOuter">
+      <div class="flipBox_box">
+        <div></div><div></div><div></div><div></div><div></div><div></div>
+      </div>
+    </div>
+    <div class="flipBox_shadow"></div>
+  </label>
+          <label class="flipBox" aria-label="Checkbox 1">
           <input type="checkbox" id="GPA" name="GPA" checked>
           <label>GPA</label>
+    <div class="flipBox_boxOuter">
+      <div class="flipBox_box">
+        <div></div><div></div><div></div><div></div><div></div><div></div>
+      </div>
+    </div>
+    <div class="flipBox_shadow"></div>
+  </label>
+             <label class="flipBox" aria-label="Checkbox 1">
           <input type="checkbox" id="Level" name="Level" checked>
           <label>Level</label>
+    <div class="flipBox_boxOuter">
+      <div class="flipBox_box">
+        <div></div><div></div><div></div><div></div><div></div><div></div>
+      </div>
+    </div>
+    <div class="flipBox_shadow"></div>
+  </label>
+            <label class="flipBox" aria-label="Checkbox 1">
           <input type="checkbox" id="Department" name="Department" checked>
           <label>Department</label>
+    <div class="flipBox_boxOuter">
+      <div class="flipBox_box">
+        <div></div><div></div><div></div><div></div><div></div><div></div>
+      </div>
+    </div>
+    <div class="flipBox_shadow"></div>
+  </label>
+             <label class="flipBox" aria-label="Checkbox 1">
           <input type="checkbox" id="Date Of Birth" name="Date Of Birth" checked>
           <label>Data of Birth</label>
+    <div class="flipBox_boxOuter">
+      <div class="flipBox_box">
+        <div></div><div></div><div></div><div></div><div></div><div></div>
+      </div>
+    </div>
+    <div class="flipBox_shadow"></div>
+  </label>
+            <label class="flipBox" aria-label="Checkbox 1">
           <input type="checkbox" id="Gender" name="Gender" checked>
-          <label>Gender</label>
+                <label>Gender</label>
+
+    <div class="flipBox_boxOuter">
+      <div class="flipBox_box">
+        <div></div><div></div><div></div><div></div><div></div><div></div>
+      </div>
+    </div>
+    <div class="flipBox_shadow"></div>
+  </label>
+
+            <label class="flipBox" aria-label="Checkbox 1">
           <input type="checkbox" id="Status" name="Status" checked>
           <label >Status</label>
+
+    <div class="flipBox_boxOuter">
+      <div class="flipBox_box">
+        <div></div><div></div><div></div><div></div><div></div><div></div>
+      </div>
+    </div>
+    <div class="flipBox_shadow"></div>
+  </label>
+            <label class="flipBox" aria-label="Checkbox 1">
           <input type="checkbox" id="Email" name="Email" checked>
           <label>Email</label>
-          <input type="checkbox" id="Mobile Number" name="Mobile Number" checked> 
+
+    <div class="flipBox_boxOuter">
+      <div class="flipBox_box">
+        <div></div><div></div><div></div><div></div><div></div><div></div>
+      </div>
+    </div>
+    <div class="flipBox_shadow"></div>
+  </label>
+            <label class="flipBox" aria-label="Checkbox 1">
+          <input type="checkbox" id="Mobile Number" name="Mobile Number" checked>
           <label>Mobile Number</label>
+
+    <div class="flipBox_boxOuter">
+      <div class="flipBox_box">
+        <div></div><div></div><div></div><div></div><div></div><div></div>
+      </div>
+    </div>
+    <div class="flipBox_shadow"></div>
+  </label>
           </div>
 <div class="table_con">
     <table id="students_table">
@@ -59,7 +145,7 @@
             <th class="Status"  style="z-index: 1;">Active Status</th>
             <th class="Email">Email</th>
             <th class="Mobile Number">Mobile Number</th>
-            
+
         </thead>
         <tbody>
         {% for student in students %}
@@ -77,31 +163,31 @@
                             Female
                         {% endif %}
                     </td>
-                    <td class = "Status">active<label class="toggle">
-                    <input class="toggle-checkbox" type="checkbox" id ="status-toggle" {% if not student.status %} {% else %}checked {% endif %} onload="Changestatus({{ student.id }})">
+                    <td class = "Status"><label class="toggle">
+                    <input class="toggle-checkbox" type="checkbox" id ="status-toggle" {% if not student.status %} {% else %}checked {% endif %} onclick="Changestatus({{ student.stud_id }})">
                     <div class="toggle-switch"></div>
                     <span class="toggle-label"></span>
                     </label></td>
                    <td class = "Email">{{student.email}}</td>
                    <td class = "Mobile Number">{{student.mobileNumber}}</td>
-                </tr>`
+                </tr>
 
         {% endfor %}
-         
-           
-           
+
+
+
         </tbody>
 
     </table>
     <script>
-      
+
     </script>
-    
+
   </div>
   <button class="btn " onclick="checkAll()" > <span> Un/Checkall </span> </button>
   <button class="btn " onclick="applyFilters()" > <span>Apply</span></button>
 
-  
+
   </div>
 
   <dev id="footer">
