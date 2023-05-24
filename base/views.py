@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from base.models import Student, Department
 from django.http import HttpResponse
+from django.views.decorators.csrf import csrf_protect ,csrf_exempt
 
 
 from django.contrib.auth import authenticate, login, logout
@@ -35,13 +36,60 @@ def show(request):
     return render(request, 'show.html')
 
 
-def edit(request):
-    return render(request, 'edit.html')
+def edit(request, pk):
+
+    if request.method == "GET":
+         data = Student.objects.get(stud_id=pk)
+         date = str(data.dateOfBirth)
+         department = str(data.department)
+         return render(request, "edit.html", {"data": data, "date": date, "dep": department})
+
+    if request.method == "POST":
+        data = Student.objects.get(stud_id = pk)
+        data.stud_name = request.POST.get("name")
+        data.stud_id = request.POST.get("stud_id")
+        data.stud_gpa = request.POST.get("gpa")
+        data.level = request.POST.get("level")
+        data.dateOfBirth = request.POST.get("date")
+        data.gender = request.POST.get("gender")
+        data.email = request.POST.get("email")
+        data.mobileNumber = request.POST.get("mobile-number")
+        data.save()
+        return render(request, 'home.html')
+
+@csrf_exempt
+def delete(request,pk):
+    data = Student.objects.get(stud_id=pk)
+    if request.method == 'POST':
+        data.delete()
+        return render(request, "home.html")
+    return render(request, "delete.html")
 
 
 def select(request):
     return render(request, 'select.html')
 
+@csrf_exempt
+def check_existing(request):
+    if request.method == 'POST':
+        stud_id = request.POST.get('stud_id')
+        d = students.objects.filter(stud_id=stud_id)
+        mobile_number = request.POST.get('mobile_number')
+        email = request.POST.get('email')
+        data = {}
+
+        # Check if the ID exists
+        if Student.objects.filter(stud_id=stud_id).exists():
+            data['id_exists'] = True
+        else:
+            data['id_exists'] = False
+
+        # Check if the email exists
+
+        # print(JsonResponse(data))
+        print(data['id_exists'])
+        print(JsonResponse(data['id_exists']))
+        return JsonResponse(data['id_exists'])
 
 @login_required
 @csrf_exempt
