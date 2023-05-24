@@ -5,19 +5,25 @@
   <ul>
     <li style="float: left;padding: 10px;" id="facultyName"><label>F C A I</label></li>
     <ul>
-      <li><a href="../about/">About</a></li>
-      <li><a href="../login">Login</a></li>
-      <li><a href="../register">add</a></li>
+    {% if not request.user.is_authenticated %}
+        <li><a href={% url 'base:login'%}>Login</a></li>
+    {% endif %}
+        <li><a href="{% url 'base:about'%}">About</a></li>
+        {% if request.user.is_authenticated %}
+      <li> <a class="navbar-link" href = "{% url 'logout' %}"> logout </a></li>
+      <li><a href="{% url 'base:add'%}">add</a></li>
       <li><div class="dropdown">
       <button onclick="myFunction()" class="dropbtn">Menu</button>
       <div id="myDropdown" class="dropdown-content">
-        <a href="../search">Search</a>
-        <a href="../edit">Edit</a>
-        <a href="../select">Select</a>
-        <a href="../show/">Show</a>
+        <a href="{% url 'base:search'%}">Search</a>
+        <a href="{% url 'base:edit'%}">Edit</a>
+{#        <a href="{% url 'base:select'%}">Select</a>#}
+        <a href="{% url 'base:show'%}">Show</a>
       </div>
+        {% endif %}
+        <li><a  href="{% url 'base:home'%}">Home</a></li>
+
     </div></li>
-      <li><a  href="../home">Home</a></li>
 
     </ul>
 </ul></div>

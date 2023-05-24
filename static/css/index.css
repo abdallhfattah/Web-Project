@@ -1,13 +1,14 @@
 
 
 .content{
-background-color: #aff6cf;
-background-image: linear-gradient(315deg, #aff6cf 0%, #9f98e8 74%);
-  padding: 20%;
+    background-color: #aff6cf;
+    background-image: linear-gradient(315deg, #aff6cf 0%, #9f98e8 74%);
+    padding: 20%;
 }
 *{
-padding: 0;
-margin: 0;
+    padding: 0;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
 
 }
 li {

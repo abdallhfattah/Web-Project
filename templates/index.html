@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <title>Student Affairs Website </title>
   <meta name="description" content="This our Student Affairs website">
-  <link rel="stylesheet" href="static/css/index.css">
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
 
 </head>
 <body>
@@ -26,7 +26,7 @@
             <input type="radio" name="r" id="r3">
             <input type="radio" name="r" id="r4">
             <div class="slide s1" >
-                <p onclick="location.href='home';">Student Affairs System</p>
+                <p onclick="location.href='{% url 'base:home'%}'">Student Affairs System</p>
             </div>
             <div class="slide" class="s2">
                 <p>Human Resources System</p>

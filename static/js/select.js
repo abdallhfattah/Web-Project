@@ -1,33 +1,25 @@
 
 
 document.getElementById("ok").addEventListener("click", function() {
-    
+
     var id = document.getElementById("id").value;
     var name = document.getElementById("name").value;
     var department = document.getElementById("department").value;
-    var level = JSON.parse(localStorage.getItem(id))['student_lvl'];
-    
-   
-    if(localStorage.getItem(id) == null)
-    {
-        alert("Please enter a valid id");
-        return false;
-    }
-   
-
-
-    if(level==2 || level==1){
-        alert("cannot edit department for this student ");
-        return false;
-    }
-    
-        var student = JSON.parse(localStorage.getItem(id));
-    student.student_name = name;
-    student.student_dep = department;
-    localStorage.setItem(id, JSON.stringify(student));
+     xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function () {
+      if(xhttp.readyState === 4) {
+      if (xhttp.status === 200) {
+        alert("Department Selected Successfully");
+      }
+  }
+  }
+   const csrfToken = getCookie("csrftoken");
+    xhttp.open("POST", "../../select/" + id+"/");
+    xhttp.setRequestHeader("Content-Type", "application/json");
+    xhttp.setRequestHeader("X-CSRFToken", csrfToken);
+    xhttp.send();
     showSuccess();
-    
-    
+
 });
 function showSuccess(){
     let studentName = document.getElementById("name").value;
@@ -35,3 +27,9 @@ function showSuccess(){
     let choice = confirm(department + " Department\nHas been selected\nFor student: " + studentName + "\nPress OK if you want to continue or Cancel");
     return choice;
 }
+function getCookie(name) {
+    const value = `; ${document.cookie}`;
+    const parts = value.split(`; ${name}=`);
+    if (parts.length === 2) return parts.pop().split(';').shift();
+}
+

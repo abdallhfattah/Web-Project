@@ -16,8 +16,19 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path,include
+from base import views
+
+from django.conf import settings
+
+from django.views.static import serve
 
 urlpatterns = [
+    path('',views.index,name='index'),
     path('admin/', admin.site.urls),
-    path('',include('base.urls')),
+    path('base/',include('base.urls')),
+    path('logout/', views.user_logout, name='logout'),
+
+
 ]
+handler404 = "base.views.page_not_found"
+

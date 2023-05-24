@@ -131,8 +131,6 @@ function applyFilters() {
   //   }
   //
   // window.onload=loadTableData;
-        const isChecked = toggle.checked;
-
 function Changestatus(id) {
   const xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function () {
@@ -146,7 +144,7 @@ function Changestatus(id) {
   };
 
   const csrfToken = getCookie("csrftoken");
-  xhttp.open("PATCH", "/deactivate/" + id);
+  xhttp.open("PATCH", "../deactivate/" + id);
   xhttp.setRequestHeader("Content-Type", "application/json");
   xhttp.setRequestHeader("X-CSRFToken", csrfToken);
   xhttp.send();
