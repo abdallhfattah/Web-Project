@@ -5,14 +5,16 @@ app_name = 'base'
 
 urlpatterns = [
     path('home/', views.home, name="home"),
-    path('show/', views.show, name='show'),
     path('about/', views.about, name="about"),
     path('edit/', views.edit, name="edit"),
+    path('show/', views.getallstudents , name="show"),
     path('check_existing/', views.check_existing, name="check_existing"),
-    path('select/', views.select, name="select"),
-    path('search/', views.getallstudents, name="search"),
+    path('select/<int:id>/', views.select)
+    path('search/', views.getallstudents2, name="search"),
     path('add/', views.add, name="add"),
     path('user_login/', views.user_login, name="login"),
     path('user_logout/', views.user_logout, name = "user_logout"),
+    path('deactivate/<int:id>', views.deactivate),
+
 ]
 
