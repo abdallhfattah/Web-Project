@@ -1,82 +1,165 @@
-import axios from 'axios';
-import { reverse } from 'django.urls';  
 
-const form = document.getElementById("form");
-const student_id = document.getElementById("id");
-const student_email = document.getElementById("email");
-const student_mobile_number = document.getElementById("phone");
+document.getElementById('form').addEventListener('submit', function(event) {
+    event.preventDefault();
 
-form.addEventListener('submit', e => {
-    e.preventDefault();
-    validateInputs();
+    var stud_id = document.getElementById('id').value.trim();
+    var email = document.getElementById('email').value.trim();
+    var phone = document.getElementById('phone').value.trim();
+    var name = document.getElementById('name').value.trim(); 
+    var stud_gpa = document.getElementById('gpa').value.trim(); 
+    var stud_gender = document.getElementById('gender').value.trim(); 
+    var date_of_birth = document.getElementById('date').value.trim(); 
+    var stud_level = document.getElementById('level').value.trim();
+    var department_name = document.getElementById('department').value.trim();
+    var stud_status =  document.getElementById('status').value.trim();
+    var password = document.getElementById('pass').value.trim();
+    var password_confrim = document.getElementById('confirm-pass').value.trim();
+
+    var formData = new FormData();
+    formData.append('stud_id', stud_id);
+    formData.append('email', email);
+    formData.append('mobile_number', phone);
+    formData.append('stud_name', name);
+    formData.append('date_of_birth', date_of_birth);
+    formData.append('stud_gpa', stud_gpa);
+    formData.append('gender', stud_gender);
+    formData.append('level', stud_level);
+    formData.append('status', stud_status);
+    formData.append('department', department_name);
+    formData.append('password', password);
+    formData.append('confirm-pass', password_confrim);
+
+    console.log('name  :' , name, isValidName(name));
+
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', '../check_existing/');
+    xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+    xhr.onload = function() {
+        if (xhr.status === 200) {
+            var response = JSON.parse(xhr.responseText);
+            var vaild = true;
+            var vaild_id = true;
+            var vaild_phone = true;
+            var vaild_email = true;
+
+            /* ======================== ID VALDIATION ======================== */
+            if(isVaildID(stud_id)){
+                setSuccess(document.getElementById('id'));
+            }
+            else {
+                setError(document.getElementById('id'),  'Please enter a valid ID');
+                vaild = false;
+                vaild_id = false;
+            }
+
+            /* ======================== VAILD PHONE NUBMER ========================  */
+            if (!isValidPhoneNumber(phone)){
+                setError(document.getElementById('phone') , "Egyption number are only allowed");
+                vaild = false;
+                vaild_phone = false;
+            }
+            else setSuccess(document.getElementById('phone'));
+        
+            /* ======================== Strong Password ======================== */
+            if (password.length >= 8 ){
+            /* ======================== PASSWORD MATCHING ======================== */
+                setSuccess(document.getElementById('pass'));
+                if(password_confrim !== password) {
+                    setError(document.getElementById('confirm-pass') , "password doesnt match");
+                    vaild = false;
+                }
+                else setSuccess(document.getElementById('confirm-pass'));
+            }
+            else {
+                setError(document.getElementById('pass') , "Password must be at least 8 characters");
+                vaild = false;
+            }
+
+            /* ======================== EMAIL VALIDATION ========================  */
+            if(!isValidEmail(email)){
+                setError(document.getElementById('email') , "Enter Vaild mail");
+                vaild = false;
+                vaild_email = false;
+            }
+            else
+                setSuccess(document.getElementById('email'))
+            
+            /* ======================== NAME VALIDATION ========================  */
+            if(!isValidName(name)){
+                setError(document.getElementById('name') , "no specified characters");
+                vaild = false;
+            }
+            else{
+                setSuccess(document.getElementById('name'));
+                console.log('valid');
+            }
+    
+            /* ======================== DEPARTMENT SELECTION ======================== */
+            if(department_name !== "Select Department"){
+                if(stud_level <= 2 && department_name !== "None"){
+                    setError(document.getElementById('department') , "Level must be at least 3");
+                    vaild = false;
+                }
+                else if (stud_level >= 3 && (department_name === "None")){
+                    setError(document.getElementById('department') , "student must have department");
+                    vaild = false;
+                }
+                else {
+                    setSuccess(document.getElementById('department'));
+                }
+            }
+            else{
+                setError(document.getElementById('department') , "must choose a choice");
+                vaild = false;
+            }
+            
+            /* ======================== CHECK EXISTING VALUES ======================== */
+
+            // Handle ID already exists
+            if(vaild_id){
+                if (response.id_exists) 
+                setError(document.getElementById('id'), "ID already exists");
+                else{
+                    setSuccess(document.getElementById('id')); 
+                }
+            }
+
+            // Handle email already exists
+            if(vaild_email){
+                if (response.email_exists) 
+                    setError(document.getElementById('email'), 'Email already exists');
+                else
+                    setSuccess(document.getElementById('email'));
+            }
+
+            // Handle phone number already exists
+            if(vaild_phone){
+                if (response.phone_exists)
+                    setError(document.getElementById('phone'), 'Phone number already exists');
+                else
+                    setSuccess(document.getElementById('phone'));
+            }
+
+            // Proceed with form submission
+            if (!response.id_exists && !response.email_exists && !response.phone_exists && vaild) {
+                var addUrl = '../add/';  
+                fetch(addUrl, {
+                    method: 'POST',
+                    body: formData
+                })
+                .finally(() => {
+                    window.location.href = addUrl;
+                });
+            }
+
+        } 
+        else {
+            console.error('Request failed with status ' + xhr.status);
+        }
+    };
+    xhr.send(formData);
+
 });
-
-const validateInputs = () => {
-    const idValue = student_id.value.trim();
-    const emailValue = student_email.value.trim();
-    const mobileValue = student_mobile_number.value.trim();
-    let isValid = true;
-
-    if (idValue !== '') {
-        checkIfExists('stud_id', idValue)
-            .then(response => {
-                if (response.data.exists) {
-                    setError(student_id, 'This ID already exists.');
-                    isValid = false;
-                } else {
-                    setSuccess(student_id);
-                }
-            })
-            .catch(error => {
-                console.log(error);
-                isValid = false;
-            });
-    }
-
-    if (emailValue !== '') {
-        checkIfExists('email', emailValue)
-            .then(response => {
-                if (response.data.exists) {
-                    setError(student_email, 'This email already exists.');
-                    isValid = false;
-                } else {
-                    setSuccess(student_email);
-                }
-            })
-            .catch(error => {
-                console.log(error);
-                isValid = false;
-            });
-    }
-
-    if (mobileValue !== '') {
-        checkIfExists('mobileNumber', mobileValue)
-            .then(response => {
-                if (response.data.exists) {
-                    setError(student_mobile_number, 'This phone number already exists.');
-                    isValid = false;
-                } else {
-                    setSuccess(student_mobile_number);
-                }
-            })
-            .catch(error => {
-                console.log(error);
-                isValid = false;
-            });
-    }
-
-    if (isValid) {
-        // Proceed with form submission
-        form.submit();
-    }
-}
-
-const checkIfExists = (field, value) => {
-    const url = reverse('base:add');  // Replace with the actual URL to your Django view for checking existence
-    const data = { field, value };
-
-    return axios.post(url, data);
-}
 
 /* ================== Error ================== */
 const setError = (element, message) => {
@@ -88,133 +171,32 @@ const setError = (element, message) => {
     inputControl.classList.remove('success');
 }
 
-
 /* ================== Success ================== */
-const setSuccess = element => {
+const setSuccess = (element , message = "") => {
     const inputControl = element.parentElement;
     const errorDisplay = inputControl.querySelector('.error');
 
-    errorDisplay.innerText = "";
+    errorDisplay.innerText = message;
     inputControl.classList.add('success');
     inputControl.classList.remove('error');
 }
 
+const isValidName = name => {
+    const ok = /^[\p{L}\s]+$/u;
+    return ok.test(name);
+}
 
-form.addEventListener('submit' , e => {
-    e.preventDefault();
+const isValidPhoneNumber = number => {    
+    const pattern = /^0(10|11|12|15)\d{8}$/;
+    return pattern.test(number);
+}
 
-    validate_Inputs();
-});
+const isValidEmail = email => {
+    const re = /^[\w.-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,63}$/;
+    return (re.test(String(email).toLowerCase()));
+}
 
-
-
-/* ================== Validation ================== */ 
-// const validate_Inputs = () =>{
-//     var vaild = true;
-//     const id_value = student_id.value.trim();
-//     const name_value= student_name.value.trim();
-//     const email_value = student_email.value.trim();
-//     const mobile_value = student_mobile_number.value.trim();
-//     const password_value = student_pass.value.trim();
-//     const confirm_value  = student_conf_pass.value.trim();
-
-//     // ID
-//     if(id_value === ''){
-//         setError(student_id, "ID is required");
-//         vaild = false;
-        
-//     }
-//     else if(!isValidateID(id_value)){
-//         setError(student_id , "Please provide valid ID");
-//         vaild = false;
-//     }
-//     else{
-//         setSuccess(student_id);
-//     }
-
-//     // Email
-//     if(email_value === '') {
-//         setError(student_email, 'Email is required');
-//         vaild = false;
-//     } else if (!isValidEmail(email_value)) {
-//         setError(student_email, 'Provide a valid email address');
-//         vaild = false;
-//     } else {
-//         setSuccess(student_email);
-//     }
-
-//     // Name
-//     if(name_value === ''){
-//         setError(student_name, "name is required");
-//         vaild = false;
-//     }else if(!isValidName(name_value)){
-//         setError(student_name, "please enter valid name");
-//         vaild = false;
-//     }
-//     else{
-//         setSuccess(student_name);
-//     }
-
-//     // Phone
-//     if(mobile_value === ''){
-//         setError(student_mobile_number, "phone number is required");
-//         vaild = false;
-//     }
-//     else if(!isValidPhoneNumber(mobile_value)){
-//         setError(student_mobile_number , "please enter valid phone number");
-//         vaild = false;
-//     }
-//     else{
-//         setSuccess(student_mobile_number);
-//     }
-
-//     // password
-//     if(password_value === '') {
-//         setError(student_pass, 'Password is required');
-//         vaild = false;
-//     } else if (password_value.length < 8 ) {
-//         setError(student_pass, 'Password must be at least 8 character.');
-//         vaild = false;
-//     } else {
-//         setSuccess(student_pass);
-//     }
-
-//     if(confirm_value === '') {
-//         setError(student_conf_pass, 'Please confirm your password');
-//         vaild = false;
-//     } else if (confirm_value !== password_value) {
-//         setError(student_conf_pass, "Passwords doesn't match");
-//         vaild = false;
-//     } else {
-//         setSuccess(student_conf_pass);
-//     }
-//    //level
-//     if(level.value < 3){
-//         dep.value = "None";
-//     }
-//     if(vaild){
-//         addStudent();
-//     }
-
-// }
-
-// const isValidName = name => {
-//     const ok = /^[a-zA-Z ]+$/;
-//     return ok.test(name);
-// }
-
-// const isValidPhoneNumber = number => {    
-//     const pattern = /^0(10|11|12|15)\d{8}$/;
-//     return pattern.test(number);
-// }
-
-// const isValidEmail = email => {
-//     const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-//     return re.test(String(email).toLowerCase());
-// }
-
-
-function isValidateID(id) {
-    const pattern = /^[0-9]{1,5}$/;
-    return pattern.test(id) && parseInt(id) >= 0 && parseInt(id) <= 20219999;
+function isVaildID(id) {
+    const pattern = /^[0-9]{8}$/;
+    return pattern.test(id);
 }
